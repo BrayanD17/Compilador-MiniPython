@@ -49,14 +49,16 @@ app.MapPost("/parse", async (HttpRequest request) =>
         var parser = new MiniPythonParser(new CommonTokenStream(lexer));
 
         var errorListener = new CustomErrorListener();
+        parser.RemoveErrorListeners(); // Remover los listeners existentes
         parser.AddErrorListener(errorListener);
 
         // Procesar el código
         parser.program(); // Asegúrate de llamar a la función de entrada de tu parser
 
-        // Si no hay errores, devolver éxito
+        // Si hay errores, devolverlos
         if (errorListener.HasErrors)
         {
+            // Separar los errores por saltos de línea
             var errorMessages = string.Join("\n", errorListener.Errors);
             return Results.BadRequest(new { error = "Parsing failed", details = errorMessages });
         }
