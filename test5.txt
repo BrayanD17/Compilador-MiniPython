@@ -1,0 +1,10 @@
+# Verificar si un número está en una lista
+def check_number_in_list(num):
+    numbers = [1, 2, 3, 4, 5]
+    if num in numbers:
+        print(f"{num} está en la lista.")
+    else:
+        print(f"{num} no está en la lista.")
+
+check_number_in_list(3)
+check_number_in_list(7)
