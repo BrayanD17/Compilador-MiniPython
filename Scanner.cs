@@ -10,6 +10,13 @@ public class Scanner
         var inputStream = new AntlrInputStream(input);
         _lexer = new MiniPythonLexer(inputStream);
         _currentToken = _lexer.NextToken();
+
+        // Depuración: imprimir todos los tokens
+        while (_currentToken.Type != MiniPythonLexer.Eof)
+        {
+            Console.WriteLine($"Token: {_lexer.Vocabulary.GetSymbolicName(_currentToken.Type)}, Lexema: {_currentToken.Text}");
+            _currentToken = _lexer.NextToken();
+        }
     }
 
     public Token GetNextToken()
