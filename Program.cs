@@ -39,6 +39,7 @@ app.MapPost("/parse", async (HttpRequest request) =>
 {
     try
     {
+        // Leer el cuerpo de la solicitud
         using var reader = new StreamReader(request.Body);
         var body = await reader.ReadToEndAsync();
         var json = JsonSerializer.Deserialize<Dictionary<string, string>>(body);
@@ -48,22 +49,25 @@ app.MapPost("/parse", async (HttpRequest request) =>
         var lexer = new MiniPythonLexer(CharStreams.fromString(code));
         var parser = new MiniPythonParser(new CommonTokenStream(lexer));
 
+        // Añadir el listener de errores personalizado
         var errorListener = new CustomErrorListener();
-        parser.RemoveErrorListeners(); // Remover los listeners existentes
         parser.AddErrorListener(errorListener);
 
         // Procesar el código
-        parser.program(); // Asegúrate de llamar a la función de entrada de tu parser
+        parser.program(); // Llama a la función principal de tu parser
 
-        // Si hay errores, devolverlos
+        // Si hay errores, devolver un 400 con los detalles
         if (errorListener.HasErrors)
         {
-            // Separar los errores por saltos de línea
-            var errorMessages = string.Join("\n", errorListener.Errors);
-            return Results.BadRequest(new { error = "Parsing failed", details = errorMessages });
+            return Results.BadRequest(new
+            {
+                error = "Parsing failed",
+                details = errorListener.Errors
+            });
         }
 
-        return Results.Ok("Parsing completed successfully.");
+        // Si no hay errores, devolver éxito
+        return Results.Ok(new { message = "Parsing completed successfully." });
     }
     catch (Exception ex)
     {
@@ -75,5 +79,6 @@ app.MapPost("/parse", async (HttpRequest request) =>
         return Results.Problem(JsonSerializer.Serialize(errorResponse));
     }
 });
+
 
 app.Run();

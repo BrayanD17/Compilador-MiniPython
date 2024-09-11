@@ -28,35 +28,35 @@ namespace MiniPython
     }
 
     // Manejo de errores personalizado
-    public class CustomErrorListener : IAntlrErrorListener<IToken>
+    public class CustomErrorListener : BaseErrorListener
+{
+    public List<ErrorInfo> Errors { get; private set; } = new List<ErrorInfo>();
+
+    public bool HasErrors => Errors.Count > 0;
+
+    public override void SyntaxError(
+        TextWriter output,
+        IRecognizer recognizer,
+        IToken offendingSymbol,
+        int line,
+        int charPositionInLine,
+        string msg,
+        RecognitionException e)
     {
-        public List<string> Errors { get; } = new List<string>();
-        public bool HasErrors => Errors.Count > 0;
-
-        public void SyntaxError(
-            TextWriter output,
-            IRecognizer recognizer,
-            IToken offendingSymbol,
-            int line,
-            int charPositionInLine,
-            string msg,
-            RecognitionException e)
+        // Agrega el error a la lista
+        Errors.Add(new ErrorInfo
         {
-            // Almacena el mensaje de error con un salto de línea
-            string errorMessage = $"Error en la línea {line}:{charPositionInLine} - {msg}";
-            Errors.Add(errorMessage);
-        }
-
-        // Método para mostrar los errores
-        public void PrintErrors()
-        {
-            if (HasErrors)
-            {
-                foreach (var error in Errors)
-                {
-                    Console.WriteLine(error);
-                }
-            }
-        }
+            Line = line,
+            Column = charPositionInLine,
+            Message = msg
+        });
     }
+}
+
+public class ErrorInfo
+{
+    public int Line { get; set; }
+    public int Column { get; set; }
+    public string Message { get; set; }
+}
 }

@@ -639,19 +639,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\dinar\\.nuget\\packages\\": {}
+    "C:\\Users\\nmari\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\dinar\\Documents\\GitHub\\Compilador-MiniPython\\CompiladorMini-Python.csproj",
+      "projectUniqueName": "C:\\Users\\nmari\\OneDrive\\Documentos\\GitHub\\Compilador-MiniPython\\CompiladorMini-Python.csproj",
       "projectName": "CompiladorMini-Python",
-      "projectPath": "C:\\Users\\dinar\\Documents\\GitHub\\Compilador-MiniPython\\CompiladorMini-Python.csproj",
-      "packagesPath": "C:\\Users\\dinar\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\dinar\\Documents\\GitHub\\Compilador-MiniPython\\obj\\",
+      "projectPath": "C:\\Users\\nmari\\OneDrive\\Documentos\\GitHub\\Compilador-MiniPython\\CompiladorMini-Python.csproj",
+      "packagesPath": "C:\\Users\\nmari\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\nmari\\OneDrive\\Documentos\\GitHub\\Compilador-MiniPython\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\dinar\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\nmari\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net8.0"
