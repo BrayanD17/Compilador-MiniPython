@@ -62,9 +62,15 @@ app.MapPost("/parse", async (HttpRequest request) =>
             return Results.BadRequest(new
             {
                 error = "Parsing failed",
-                details = errorListener.Errors
+                details = errorListener.Errors.Select(err => new
+                {
+                    line = err.Line,
+                    column = err.Column,
+                    message = err.Message
+                })
             });
         }
+
 
         // Si no hay errores, devolver éxito
         return Results.Ok(new { message = "Parsing completed successfully." });

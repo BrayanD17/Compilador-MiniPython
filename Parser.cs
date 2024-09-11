@@ -8,8 +8,6 @@ namespace MiniPython
     public class MiParser
     {
         private readonly MiniPythonParser _parser;
-
-        // Constructor
         public MiParser(MiniPythonLexer lexer)
         {
             var tokens = new CommonTokenStream(lexer);
