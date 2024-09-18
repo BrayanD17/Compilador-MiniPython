@@ -38,7 +38,10 @@ FLOAT   : [0-9]+ '.' [0-9]+ ;
 STRING  : '"' (~["\\] | '\\')* '"' ;
 
 // Whitespace and comments
-WS             : [ \t]+ -> skip ;             // Ignorar espacios y tabulaciones
-COMMENT        : '#' ~[\r\n]* -> skip ;       // Ignorar comentarios de una sola línea
-BLOCK_COMMENT  : '"""' .*? '"""' -> skip ;    // Ignorar comentarios en bloque
-NEWLINE        : [\r\n]+ ;                    // Capturar saltos de línea
+WS : [ +\r\n\t] -> skip ;
+COMMENT        : '#' ~[\r\n]* -> skip ;
+BLOCK_COMMENT  : '"""' .*? '"""' -> skip ;  
+NEWLINE : ('\r'? '\n' (' ' | '\t')* );
+
+// Indentation
+INDENT         : [ \t]+ ;

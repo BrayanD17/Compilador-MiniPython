@@ -33,6 +33,7 @@ WS=32
 COMMENT=33
 BLOCK_COMMENT=34
 NEWLINE=35
+INDENT=36
 'if'=1
 'else'=2
 'print'=3

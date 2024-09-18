@@ -23,7 +23,7 @@ mainStatement
 
 // Function definition
 defStatement
-    : DEF ID PIZQ argList? PDER DOSPUN NEWLINE sequence
+    : DEF ID PIZQ argList? PDER DOSPUN NEWLINE INDENT sequence NEWLINE
     ;
 
 // Argument list
@@ -33,17 +33,17 @@ argList
 
 // If statement
 ifStatement
-    : IF expression DOSPUN NEWLINE sequence (ELSE DOSPUN NEWLINE sequence)?
+    : IF expression DOSPUN NEWLINE INDENT sequence (ELSE DOSPUN NEWLINE INDENT sequence)? 
     ;
 
 // While statement
 whileStatement
-    : WHILE expression DOSPUN NEWLINE sequence
+    : WHILE expression DOSPUN NEWLINE INDENT sequence 
     ;
 
 // For statement
 forStatement
-    : FOR expression IN expressionList DOSPUN NEWLINE sequence
+    : FOR expression IN expressionList DOSPUN NEWLINE INDENT sequence 
     ;
 
 // Return statement
