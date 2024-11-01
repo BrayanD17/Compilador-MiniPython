@@ -1,0 +1,6 @@
+C:\Users\dinar\RiderProjects\Compilador-MiniPython-TerceraEtapa\Compilador-MiniPython-TerceraEtapa\obj\Debug\net9.0\MiniPythonLexer.cs
+C:\Users\dinar\RiderProjects\Compilador-MiniPython-TerceraEtapa\Compilador-MiniPython-TerceraEtapa\obj\Debug\net9.0\MiniPythonParser.cs
+C:\Users\dinar\RiderProjects\Compilador-MiniPython-TerceraEtapa\Compilador-MiniPython-TerceraEtapa\obj\Debug\net9.0\MiniPythonParserListener.cs
+C:\Users\dinar\RiderProjects\Compilador-MiniPython-TerceraEtapa\Compilador-MiniPython-TerceraEtapa\obj\Debug\net9.0\MiniPythonParserBaseListener.cs
+C:\Users\dinar\RiderProjects\Compilador-MiniPython-TerceraEtapa\Compilador-MiniPython-TerceraEtapa\obj\Debug\net9.0\MiniPythonParserVisitor.cs
+C:\Users\dinar\RiderProjects\Compilador-MiniPython-TerceraEtapa\Compilador-MiniPython-TerceraEtapa\obj\Debug\net9.0\MiniPythonParserBaseVisitor.cs

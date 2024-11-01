@@ -1,0 +1,6 @@
+@Compilador_MiniPython_TerceraEtapa_HostAddress = http://localhost:5125
+
+GET {{Compilador_MiniPython_TerceraEtapa_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

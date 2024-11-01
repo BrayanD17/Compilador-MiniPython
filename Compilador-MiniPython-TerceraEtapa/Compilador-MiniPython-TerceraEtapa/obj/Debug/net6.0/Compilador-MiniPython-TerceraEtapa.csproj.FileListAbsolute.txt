@@ -1,0 +1,13 @@
+C:\Users\dinar\RiderProjects\Compilador-MiniPython-TerceraEtapa\Compilador-MiniPython-TerceraEtapa\obj\Debug\net6.0\Compilador-MiniPython-TerceraEtapa.csproj.AssemblyReference.cache
+C:\Users\dinar\RiderProjects\Compilador-MiniPython-TerceraEtapa\Compilador-MiniPython-TerceraEtapa\obj\Debug\net6.0\MiniPythonLexer.cs
+C:\Users\dinar\RiderProjects\Compilador-MiniPython-TerceraEtapa\Compilador-MiniPython-TerceraEtapa\obj\Debug\net6.0\MiniPythonParser.cs
+C:\Users\dinar\RiderProjects\Compilador-MiniPython-TerceraEtapa\Compilador-MiniPython-TerceraEtapa\obj\Debug\net6.0\MiniPythonParserListener.cs
+C:\Users\dinar\RiderProjects\Compilador-MiniPython-TerceraEtapa\Compilador-MiniPython-TerceraEtapa\obj\Debug\net6.0\MiniPythonParserBaseListener.cs
+C:\Users\dinar\RiderProjects\Compilador-MiniPython-TerceraEtapa\Compilador-MiniPython-TerceraEtapa\obj\Debug\net6.0\MiniPythonParserVisitor.cs
+C:\Users\dinar\RiderProjects\Compilador-MiniPython-TerceraEtapa\Compilador-MiniPython-TerceraEtapa\obj\Debug\net6.0\MiniPythonParserBaseVisitor.cs
+C:\Users\dinar\RiderProjects\Compilador-MiniPython-TerceraEtapa\Compilador-MiniPython-TerceraEtapa\obj\Debug\net6.0\Compilador-MiniPython-TerceraEtapa.csproj.Antlr4GeneratedCodeFileListAbsolute.txt
+C:\Users\dinar\RiderProjects\Compilador-MiniPython-TerceraEtapa\Compilador-MiniPython-TerceraEtapa\obj\Debug\net6.0\Compilador-MiniPython-TerceraEtapa.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\dinar\RiderProjects\Compilador-MiniPython-TerceraEtapa\Compilador-MiniPython-TerceraEtapa\obj\Debug\net6.0\Compilador-MiniPython-TerceraEtapa.AssemblyInfoInputs.cache
+C:\Users\dinar\RiderProjects\Compilador-MiniPython-TerceraEtapa\Compilador-MiniPython-TerceraEtapa\obj\Debug\net6.0\Compilador-MiniPython-TerceraEtapa.AssemblyInfo.cs
+C:\Users\dinar\RiderProjects\Compilador-MiniPython-TerceraEtapa\Compilador-MiniPython-TerceraEtapa\obj\Debug\net6.0\Compilador-MiniPython-TerceraEtapa.csproj.CoreCompileInputs.cache
+C:\Users\dinar\RiderProjects\Compilador-MiniPython-TerceraEtapa\Compilador-MiniPython-TerceraEtapa\obj\Debug\net6.0\Compilador-MiniPython-TerceraEtapa.MvcApplicationPartsAssemblyInfo.cache
