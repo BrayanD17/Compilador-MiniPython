@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-// Generated from C:/Users/dinar/RiderProjects/Compilador-MiniPython-TerceraEtapa/Compilador-MiniPython-TerceraEtapa/Grammar/MiniPythonParser.g4 by ANTLR 4.13.1
+// Generated from C:/Users/dinar/Documents/GitHub/Compilador-MiniPython/Compilador-MiniPython-TerceraEtapa/Compilador-MiniPython-TerceraEtapa/Grammar/MiniPythonParser.g4 by ANTLR 4.13.1
 
 // Unreachable code detected
 #pragma warning disable 0162
@@ -44,6 +44,12 @@ public interface IMiniPythonParserVisitor<Result> : IParseTreeVisitor<Result> {
 	/// <return>The visitor result.</return>
 	Result VisitMainStatement([NotNull] MiniPythonParser.MainStatementContext context);
 	/// <summary>
+	/// Visit a parse tree produced by <see cref="MiniPythonParser.statement"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	Result VisitStatement([NotNull] MiniPythonParser.StatementContext context);
+	/// <summary>
 	/// Visit a parse tree produced by <see cref="MiniPythonParser.defStatement"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
@@ -68,17 +74,17 @@ public interface IMiniPythonParserVisitor<Result> : IParseTreeVisitor<Result> {
 	/// <return>The visitor result.</return>
 	Result VisitWhileStatement([NotNull] MiniPythonParser.WhileStatementContext context);
 	/// <summary>
-	/// Visit a parse tree produced by <see cref="MiniPythonParser.forStatement"/>.
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	/// <return>The visitor result.</return>
-	Result VisitForStatement([NotNull] MiniPythonParser.ForStatementContext context);
-	/// <summary>
 	/// Visit a parse tree produced by <see cref="MiniPythonParser.returnStatement"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
 	Result VisitReturnStatement([NotNull] MiniPythonParser.ReturnStatementContext context);
+	/// <summary>
+	/// Visit a parse tree produced by <see cref="MiniPythonParser.forStatement"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	Result VisitForStatement([NotNull] MiniPythonParser.ForStatementContext context);
 	/// <summary>
 	/// Visit a parse tree produced by <see cref="MiniPythonParser.printStatement"/>.
 	/// </summary>
@@ -104,12 +110,6 @@ public interface IMiniPythonParserVisitor<Result> : IParseTreeVisitor<Result> {
 	/// <return>The visitor result.</return>
 	Result VisitSequence([NotNull] MiniPythonParser.SequenceContext context);
 	/// <summary>
-	/// Visit a parse tree produced by <see cref="MiniPythonParser.statement"/>.
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	/// <return>The visitor result.</return>
-	Result VisitStatement([NotNull] MiniPythonParser.StatementContext context);
-	/// <summary>
 	/// Visit a parse tree produced by <see cref="MiniPythonParser.expression"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
@@ -128,23 +128,11 @@ public interface IMiniPythonParserVisitor<Result> : IParseTreeVisitor<Result> {
 	/// <return>The visitor result.</return>
 	Result VisitAdditionExpression([NotNull] MiniPythonParser.AdditionExpressionContext context);
 	/// <summary>
-	/// Visit a parse tree produced by <see cref="MiniPythonParser.additionFactor"/>.
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	/// <return>The visitor result.</return>
-	Result VisitAdditionFactor([NotNull] MiniPythonParser.AdditionFactorContext context);
-	/// <summary>
 	/// Visit a parse tree produced by <see cref="MiniPythonParser.multiplicationExpression"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
 	Result VisitMultiplicationExpression([NotNull] MiniPythonParser.MultiplicationExpressionContext context);
-	/// <summary>
-	/// Visit a parse tree produced by <see cref="MiniPythonParser.multiplicationFactor"/>.
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	/// <return>The visitor result.</return>
-	Result VisitMultiplicationFactor([NotNull] MiniPythonParser.MultiplicationFactorContext context);
 	/// <summary>
 	/// Visit a parse tree produced by <see cref="MiniPythonParser.elementExpression"/>.
 	/// </summary>
@@ -152,21 +140,50 @@ public interface IMiniPythonParserVisitor<Result> : IParseTreeVisitor<Result> {
 	/// <return>The visitor result.</return>
 	Result VisitElementExpression([NotNull] MiniPythonParser.ElementExpressionContext context);
 	/// <summary>
-	/// Visit a parse tree produced by <see cref="MiniPythonParser.elementAccess"/>.
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	/// <return>The visitor result.</return>
-	Result VisitElementAccess([NotNull] MiniPythonParser.ElementAccessContext context);
-	/// <summary>
 	/// Visit a parse tree produced by <see cref="MiniPythonParser.expressionList"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
 	Result VisitExpressionList([NotNull] MiniPythonParser.ExpressionListContext context);
 	/// <summary>
-	/// Visit a parse tree produced by <see cref="MiniPythonParser.primitiveExpression"/>.
+	/// Visit a parse tree produced by the <c>primitiveExpressionparenthesisExprAST</c>
+	/// labeled alternative in <see cref="MiniPythonParser.primitiveExpression"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
-	Result VisitPrimitiveExpression([NotNull] MiniPythonParser.PrimitiveExpressionContext context);
+	Result VisitPrimitiveExpressionparenthesisExprAST([NotNull] MiniPythonParser.PrimitiveExpressionparenthesisExprASTContext context);
+	/// <summary>
+	/// Visit a parse tree produced by the <c>primitiveExpressionlenAST</c>
+	/// labeled alternative in <see cref="MiniPythonParser.primitiveExpression"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	Result VisitPrimitiveExpressionlenAST([NotNull] MiniPythonParser.PrimitiveExpressionlenASTContext context);
+	/// <summary>
+	/// Visit a parse tree produced by the <c>primitiveExpressionlistAST</c>
+	/// labeled alternative in <see cref="MiniPythonParser.primitiveExpression"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	Result VisitPrimitiveExpressionlistAST([NotNull] MiniPythonParser.PrimitiveExpressionlistASTContext context);
+	/// <summary>
+	/// Visit a parse tree produced by the <c>primitiveExpressionliteralAST</c>
+	/// labeled alternative in <see cref="MiniPythonParser.primitiveExpression"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	Result VisitPrimitiveExpressionliteralAST([NotNull] MiniPythonParser.PrimitiveExpressionliteralASTContext context);
+	/// <summary>
+	/// Visit a parse tree produced by the <c>primitiveExpressionidentifierListAST</c>
+	/// labeled alternative in <see cref="MiniPythonParser.primitiveExpression"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	Result VisitPrimitiveExpressionidentifierListAST([NotNull] MiniPythonParser.PrimitiveExpressionidentifierListASTContext context);
+	/// <summary>
+	/// Visit a parse tree produced by <see cref="MiniPythonParser.listExpression"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	Result VisitListExpression([NotNull] MiniPythonParser.ListExpressionContext context);
 }

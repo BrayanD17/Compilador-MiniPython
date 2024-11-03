@@ -1,0 +1,26 @@
+﻿def factorial(n):
+    if n <= 1:
+        return 1
+    else:
+        return n * factorial(n - 1)
+
+def imprimir_lista(lista):
+    for i in lista:
+        print(i)
+
+print(factorial(5))
+
+mi_lista = [1, 2, 3, 4, 5]
+print(len(mi_lista))
+
+x = 10
+while x > 0:
+    print(x)
+    x = x - 1
+
+y = 20
+if y > 10:
+    y = y - 5
+else:
+    y = y + 5
+print(y)

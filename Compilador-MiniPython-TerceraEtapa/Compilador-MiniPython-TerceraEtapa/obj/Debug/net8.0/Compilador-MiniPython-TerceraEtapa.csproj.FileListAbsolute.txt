@@ -56,6 +56,7 @@ C:\Users\dinar\Documents\GitHub\Compilador-MiniPython\Compilador-MiniPython-Terc
 C:\Users\dinar\Documents\GitHub\Compilador-MiniPython\Compilador-MiniPython-TerceraEtapa\Compilador-MiniPython-TerceraEtapa\obj\Debug\net8.0\Compilador-MiniPython-TerceraEtapa.csproj.CoreCompileInputs.cache
 C:\Users\dinar\Documents\GitHub\Compilador-MiniPython\Compilador-MiniPython-TerceraEtapa\Compilador-MiniPython-TerceraEtapa\obj\Debug\net8.0\Compilador-MiniPython-TerceraEtapa.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\dinar\Documents\GitHub\Compilador-MiniPython\Compilador-MiniPython-TerceraEtapa\Compilador-MiniPython-TerceraEtapa\obj\Debug\net8.0\Compilador-MiniPython-TerceraEtapa.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\dinar\Documents\GitHub\Compilador-MiniPython\Compilador-MiniPython-TerceraEtapa\Compilador-MiniPython-TerceraEtapa\obj\Debug\net8.0\Compilador-MiniPython-TerceraEtapa.sourcelink.json
 C:\Users\dinar\Documents\GitHub\Compilador-MiniPython\Compilador-MiniPython-TerceraEtapa\Compilador-MiniPython-TerceraEtapa\obj\Debug\net8.0\scopedcss\bundle\Compilador-MiniPython-TerceraEtapa.styles.css
 C:\Users\dinar\Documents\GitHub\Compilador-MiniPython\Compilador-MiniPython-TerceraEtapa\Compilador-MiniPython-TerceraEtapa\obj\Debug\net8.0\staticwebassets.build.json
 C:\Users\dinar\Documents\GitHub\Compilador-MiniPython\Compilador-MiniPython-TerceraEtapa\Compilador-MiniPython-TerceraEtapa\obj\Debug\net8.0\staticwebassets.development.json

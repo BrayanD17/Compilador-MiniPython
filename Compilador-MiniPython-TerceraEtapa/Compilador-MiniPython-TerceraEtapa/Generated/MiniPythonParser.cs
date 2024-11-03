@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-// Generated from C:/Users/dinar/RiderProjects/Compilador-MiniPython-TerceraEtapa/Compilador-MiniPython-TerceraEtapa/Grammar/MiniPythonParser.g4 by ANTLR 4.13.1
+// Generated from C:/Users/dinar/Documents/GitHub/Compilador-MiniPython/Compilador-MiniPython-TerceraEtapa/Compilador-MiniPython-TerceraEtapa/Grammar/MiniPythonParser.g4 by ANTLR 4.13.1
 
 // Unreachable code detected
 #pragma warning disable 0162
@@ -36,40 +36,40 @@ public partial class MiniPythonParser : Parser {
 	protected static DFA[] decisionToDFA;
 	protected static PredictionContextCache sharedContextCache = new PredictionContextCache();
 	public const int
-		IF=1, ELSE=2, PRINT=3, DEF=4, RETURN=5, WHILE=6, FOR=7, IN=8, LEN=9, PIZQ=10, 
-		PDER=11, DOSPUN=12, ASIGN=13, COMMA=14, GT=15, LT=16, LBRACKET=17, RBRACKET=18, 
-		MUL=19, DIV=20, MOD=21, SUM=22, REST=23, GE=24, LE=25, EQEQ=26, NOTEQ=27, 
-		ID=28, NUM=29, FLOAT=30, STRING=31, WS=32, COMMENT=33, BLOCK_COMMENT=34, 
-		NEWLINE=35, INDENT=36;
+		NEWLINE=1, WS=2, INDENT=3, DEDENT=4, BlockComment=5, ComillasDoblesComment=6, 
+		LineComment=7, DEF=8, IF=9, ELSE=10, WHILE=11, FOR=12, RETURN=13, PRINT=14, 
+		IN=15, LEN=16, PLUS=17, MINUS=18, MULT=19, DIV=20, LT=21, GT=22, LE=23, 
+		GE=24, EQ=25, ASSIGN=26, COMMA=27, LPAREN=28, RPAREN=29, LBRACKET=30, 
+		RBRACKET=31, LBRACE=32, RBRACE=33, DOSPUNTOS=34, INTEGER=35, FLOAT=36, 
+		CHARCONST=37, STRING=38, IDENTIFIER=39;
 	public const int
-		RULE_program = 0, RULE_mainStatement = 1, RULE_defStatement = 2, RULE_argList = 3, 
-		RULE_ifStatement = 4, RULE_whileStatement = 5, RULE_forStatement = 6, 
-		RULE_returnStatement = 7, RULE_printStatement = 8, RULE_assignStatement = 9, 
-		RULE_functionCallStatement = 10, RULE_sequence = 11, RULE_statement = 12, 
-		RULE_expression = 13, RULE_comparison = 14, RULE_additionExpression = 15, 
-		RULE_additionFactor = 16, RULE_multiplicationExpression = 17, RULE_multiplicationFactor = 18, 
-		RULE_elementExpression = 19, RULE_elementAccess = 20, RULE_expressionList = 21, 
-		RULE_primitiveExpression = 22;
+		RULE_program = 0, RULE_mainStatement = 1, RULE_statement = 2, RULE_defStatement = 3, 
+		RULE_argList = 4, RULE_ifStatement = 5, RULE_whileStatement = 6, RULE_returnStatement = 7, 
+		RULE_forStatement = 8, RULE_printStatement = 9, RULE_assignStatement = 10, 
+		RULE_functionCallStatement = 11, RULE_sequence = 12, RULE_expression = 13, 
+		RULE_comparison = 14, RULE_additionExpression = 15, RULE_multiplicationExpression = 16, 
+		RULE_elementExpression = 17, RULE_expressionList = 18, RULE_primitiveExpression = 19, 
+		RULE_listExpression = 20;
 	public static readonly string[] ruleNames = {
-		"program", "mainStatement", "defStatement", "argList", "ifStatement", 
-		"whileStatement", "forStatement", "returnStatement", "printStatement", 
-		"assignStatement", "functionCallStatement", "sequence", "statement", "expression", 
-		"comparison", "additionExpression", "additionFactor", "multiplicationExpression", 
-		"multiplicationFactor", "elementExpression", "elementAccess", "expressionList", 
-		"primitiveExpression"
+		"program", "mainStatement", "statement", "defStatement", "argList", "ifStatement", 
+		"whileStatement", "returnStatement", "forStatement", "printStatement", 
+		"assignStatement", "functionCallStatement", "sequence", "expression", 
+		"comparison", "additionExpression", "multiplicationExpression", "elementExpression", 
+		"expressionList", "primitiveExpression", "listExpression"
 	};
 
 	private static readonly string[] _LiteralNames = {
-		null, "'if'", "'else'", "'print'", "'def'", "'return'", "'while'", "'for'", 
-		"'in'", "'len'", "'('", "')'", "':'", "'='", "','", "'>'", "'<'", "'['", 
-		"']'", "'*'", "'/'", "'%'", "'+'", "'-'", "'>='", "'<='", "'=='", "'!='"
+		null, null, null, "'INDENT'", "'DEDENT'", null, null, null, "'def'", "'if'", 
+		"'else'", "'while'", "'for'", "'return'", "'print'", "'in'", "'len'", 
+		"'+'", "'-'", "'*'", "'/'", "'<'", "'>'", "'<='", "'>='", "'=='", "'='", 
+		"','", "'('", "')'", "'['", "']'", "'{'", "'}'", "':'"
 	};
 	private static readonly string[] _SymbolicNames = {
-		null, "IF", "ELSE", "PRINT", "DEF", "RETURN", "WHILE", "FOR", "IN", "LEN", 
-		"PIZQ", "PDER", "DOSPUN", "ASIGN", "COMMA", "GT", "LT", "LBRACKET", "RBRACKET", 
-		"MUL", "DIV", "MOD", "SUM", "REST", "GE", "LE", "EQEQ", "NOTEQ", "ID", 
-		"NUM", "FLOAT", "STRING", "WS", "COMMENT", "BLOCK_COMMENT", "NEWLINE", 
-		"INDENT"
+		null, "NEWLINE", "WS", "INDENT", "DEDENT", "BlockComment", "ComillasDoblesComment", 
+		"LineComment", "DEF", "IF", "ELSE", "WHILE", "FOR", "RETURN", "PRINT", 
+		"IN", "LEN", "PLUS", "MINUS", "MULT", "DIV", "LT", "GT", "LE", "GE", "EQ", 
+		"ASSIGN", "COMMA", "LPAREN", "RPAREN", "LBRACKET", "RBRACKET", "LBRACE", 
+		"RBRACE", "DOSPUNTOS", "INTEGER", "FLOAT", "CHARCONST", "STRING", "IDENTIFIER"
 	};
 	public static readonly IVocabulary DefaultVocabulary = new Vocabulary(_LiteralNames, _SymbolicNames);
 
@@ -111,10 +111,6 @@ public partial class MiniPythonParser : Parser {
 		[System.Diagnostics.DebuggerNonUserCode] public MainStatementContext mainStatement(int i) {
 			return GetRuleContext<MainStatementContext>(i);
 		}
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode[] NEWLINE() { return GetTokens(MiniPythonParser.NEWLINE); }
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode NEWLINE(int i) {
-			return GetToken(MiniPythonParser.NEWLINE, i);
-		}
 		public ProgramContext(ParserRuleContext parent, int invokingState)
 			: base(parent, invokingState)
 		{
@@ -146,41 +142,21 @@ public partial class MiniPythonParser : Parser {
 		try {
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 50;
+			State = 45;
 			ErrorHandler.Sync(this);
 			_la = TokenStream.LA(1);
-			while ((((_la) & ~0x3f) == 0 && ((1L << _la) & 34628174074L) != 0)) {
+			while ((((_la) & ~0x3f) == 0 && ((1L << _la) & 549755830528L) != 0)) {
 				{
-				State = 48;
-				ErrorHandler.Sync(this);
-				switch (TokenStream.LA(1)) {
-				case IF:
-				case PRINT:
-				case DEF:
-				case RETURN:
-				case WHILE:
-				case FOR:
-				case ID:
-					{
-					State = 46;
-					mainStatement();
-					}
-					break;
-				case NEWLINE:
-					{
-					State = 47;
-					Match(NEWLINE);
-					}
-					break;
-				default:
-					throw new NoViableAltException(this);
+				{
+				State = 42;
+				mainStatement();
 				}
 				}
-				State = 52;
+				State = 47;
 				ErrorHandler.Sync(this);
 				_la = TokenStream.LA(1);
 			}
-			State = 53;
+			State = 48;
 			Match(Eof);
 			}
 		}
@@ -202,23 +178,11 @@ public partial class MiniPythonParser : Parser {
 		[System.Diagnostics.DebuggerNonUserCode] public AssignStatementContext assignStatement() {
 			return GetRuleContext<AssignStatementContext>(0);
 		}
-		[System.Diagnostics.DebuggerNonUserCode] public IfStatementContext ifStatement() {
-			return GetRuleContext<IfStatementContext>(0);
-		}
-		[System.Diagnostics.DebuggerNonUserCode] public WhileStatementContext whileStatement() {
-			return GetRuleContext<WhileStatementContext>(0);
-		}
-		[System.Diagnostics.DebuggerNonUserCode] public ForStatementContext forStatement() {
-			return GetRuleContext<ForStatementContext>(0);
+		[System.Diagnostics.DebuggerNonUserCode] public FunctionCallStatementContext functionCallStatement() {
+			return GetRuleContext<FunctionCallStatementContext>(0);
 		}
 		[System.Diagnostics.DebuggerNonUserCode] public PrintStatementContext printStatement() {
 			return GetRuleContext<PrintStatementContext>(0);
-		}
-		[System.Diagnostics.DebuggerNonUserCode] public ReturnStatementContext returnStatement() {
-			return GetRuleContext<ReturnStatementContext>(0);
-		}
-		[System.Diagnostics.DebuggerNonUserCode] public FunctionCallStatementContext functionCallStatement() {
-			return GetRuleContext<FunctionCallStatementContext>(0);
 		}
 		public MainStatementContext(ParserRuleContext parent, int invokingState)
 			: base(parent, invokingState)
@@ -248,62 +212,159 @@ public partial class MiniPythonParser : Parser {
 		MainStatementContext _localctx = new MainStatementContext(Context, State);
 		EnterRule(_localctx, 2, RULE_mainStatement);
 		try {
-			State = 63;
+			State = 54;
 			ErrorHandler.Sync(this);
-			switch ( Interpreter.AdaptivePredict(TokenStream,2,Context) ) {
+			switch ( Interpreter.AdaptivePredict(TokenStream,1,Context) ) {
 			case 1:
 				EnterOuterAlt(_localctx, 1);
 				{
-				State = 55;
+				State = 50;
 				defStatement();
 				}
 				break;
 			case 2:
 				EnterOuterAlt(_localctx, 2);
 				{
-				State = 56;
+				State = 51;
 				assignStatement();
 				}
 				break;
 			case 3:
 				EnterOuterAlt(_localctx, 3);
 				{
-				State = 57;
-				ifStatement();
+				State = 52;
+				functionCallStatement();
 				}
 				break;
 			case 4:
 				EnterOuterAlt(_localctx, 4);
 				{
+				State = 53;
+				printStatement();
+				}
+				break;
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			ErrorHandler.ReportError(this, re);
+			ErrorHandler.Recover(this, re);
+		}
+		finally {
+			ExitRule();
+		}
+		return _localctx;
+	}
+
+	public partial class StatementContext : ParserRuleContext {
+		[System.Diagnostics.DebuggerNonUserCode] public DefStatementContext defStatement() {
+			return GetRuleContext<DefStatementContext>(0);
+		}
+		[System.Diagnostics.DebuggerNonUserCode] public IfStatementContext ifStatement() {
+			return GetRuleContext<IfStatementContext>(0);
+		}
+		[System.Diagnostics.DebuggerNonUserCode] public ReturnStatementContext returnStatement() {
+			return GetRuleContext<ReturnStatementContext>(0);
+		}
+		[System.Diagnostics.DebuggerNonUserCode] public PrintStatementContext printStatement() {
+			return GetRuleContext<PrintStatementContext>(0);
+		}
+		[System.Diagnostics.DebuggerNonUserCode] public WhileStatementContext whileStatement() {
+			return GetRuleContext<WhileStatementContext>(0);
+		}
+		[System.Diagnostics.DebuggerNonUserCode] public AssignStatementContext assignStatement() {
+			return GetRuleContext<AssignStatementContext>(0);
+		}
+		[System.Diagnostics.DebuggerNonUserCode] public ForStatementContext forStatement() {
+			return GetRuleContext<ForStatementContext>(0);
+		}
+		[System.Diagnostics.DebuggerNonUserCode] public FunctionCallStatementContext functionCallStatement() {
+			return GetRuleContext<FunctionCallStatementContext>(0);
+		}
+		public StatementContext(ParserRuleContext parent, int invokingState)
+			: base(parent, invokingState)
+		{
+		}
+		public override int RuleIndex { get { return RULE_statement; } }
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override void EnterRule(IParseTreeListener listener) {
+			IMiniPythonParserListener typedListener = listener as IMiniPythonParserListener;
+			if (typedListener != null) typedListener.EnterStatement(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override void ExitRule(IParseTreeListener listener) {
+			IMiniPythonParserListener typedListener = listener as IMiniPythonParserListener;
+			if (typedListener != null) typedListener.ExitStatement(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IMiniPythonParserVisitor<TResult> typedVisitor = visitor as IMiniPythonParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitStatement(this);
+			else return visitor.VisitChildren(this);
+		}
+	}
+
+	[RuleVersion(0)]
+	public StatementContext statement() {
+		StatementContext _localctx = new StatementContext(Context, State);
+		EnterRule(_localctx, 4, RULE_statement);
+		try {
+			State = 64;
+			ErrorHandler.Sync(this);
+			switch ( Interpreter.AdaptivePredict(TokenStream,2,Context) ) {
+			case 1:
+				EnterOuterAlt(_localctx, 1);
+				{
+				State = 56;
+				defStatement();
+				}
+				break;
+			case 2:
+				EnterOuterAlt(_localctx, 2);
+				{
+				State = 57;
+				ifStatement();
+				}
+				break;
+			case 3:
+				EnterOuterAlt(_localctx, 3);
+				{
 				State = 58;
-				whileStatement();
+				returnStatement();
+				}
+				break;
+			case 4:
+				EnterOuterAlt(_localctx, 4);
+				{
+				State = 59;
+				printStatement();
 				}
 				break;
 			case 5:
 				EnterOuterAlt(_localctx, 5);
 				{
-				State = 59;
-				forStatement();
+				State = 60;
+				whileStatement();
 				}
 				break;
 			case 6:
 				EnterOuterAlt(_localctx, 6);
 				{
-				State = 60;
-				printStatement();
+				State = 61;
+				assignStatement();
 				}
 				break;
 			case 7:
 				EnterOuterAlt(_localctx, 7);
 				{
-				State = 61;
-				returnStatement();
+				State = 62;
+				forStatement();
 				}
 				break;
 			case 8:
 				EnterOuterAlt(_localctx, 8);
 				{
-				State = 62;
+				State = 63;
 				functionCallStatement();
 				}
 				break;
@@ -322,15 +383,11 @@ public partial class MiniPythonParser : Parser {
 
 	public partial class DefStatementContext : ParserRuleContext {
 		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode DEF() { return GetToken(MiniPythonParser.DEF, 0); }
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode ID() { return GetToken(MiniPythonParser.ID, 0); }
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode PIZQ() { return GetToken(MiniPythonParser.PIZQ, 0); }
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode PDER() { return GetToken(MiniPythonParser.PDER, 0); }
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode DOSPUN() { return GetToken(MiniPythonParser.DOSPUN, 0); }
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode[] NEWLINE() { return GetTokens(MiniPythonParser.NEWLINE); }
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode NEWLINE(int i) {
-			return GetToken(MiniPythonParser.NEWLINE, i);
-		}
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode INDENT() { return GetToken(MiniPythonParser.INDENT, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode IDENTIFIER() { return GetToken(MiniPythonParser.IDENTIFIER, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode LPAREN() { return GetToken(MiniPythonParser.LPAREN, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode RPAREN() { return GetToken(MiniPythonParser.RPAREN, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode DOSPUNTOS() { return GetToken(MiniPythonParser.DOSPUNTOS, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode NEWLINE() { return GetToken(MiniPythonParser.NEWLINE, 0); }
 		[System.Diagnostics.DebuggerNonUserCode] public SequenceContext sequence() {
 			return GetRuleContext<SequenceContext>(0);
 		}
@@ -363,39 +420,35 @@ public partial class MiniPythonParser : Parser {
 	[RuleVersion(0)]
 	public DefStatementContext defStatement() {
 		DefStatementContext _localctx = new DefStatementContext(Context, State);
-		EnterRule(_localctx, 4, RULE_defStatement);
+		EnterRule(_localctx, 6, RULE_defStatement);
 		int _la;
 		try {
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 65;
-			Match(DEF);
 			State = 66;
-			Match(ID);
+			Match(DEF);
 			State = 67;
-			Match(PIZQ);
-			State = 69;
+			Match(IDENTIFIER);
+			State = 68;
+			Match(LPAREN);
+			State = 70;
 			ErrorHandler.Sync(this);
 			_la = TokenStream.LA(1);
-			if (_la==ID) {
+			if (_la==IDENTIFIER) {
 				{
-				State = 68;
+				State = 69;
 				argList();
 				}
 			}
 
-			State = 71;
-			Match(PDER);
 			State = 72;
-			Match(DOSPUN);
+			Match(RPAREN);
 			State = 73;
-			Match(NEWLINE);
+			Match(DOSPUNTOS);
 			State = 74;
-			Match(INDENT);
+			Match(NEWLINE);
 			State = 75;
 			sequence();
-			State = 76;
-			Match(NEWLINE);
 			}
 		}
 		catch (RecognitionException re) {
@@ -410,9 +463,9 @@ public partial class MiniPythonParser : Parser {
 	}
 
 	public partial class ArgListContext : ParserRuleContext {
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode[] ID() { return GetTokens(MiniPythonParser.ID); }
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode ID(int i) {
-			return GetToken(MiniPythonParser.ID, i);
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode[] IDENTIFIER() { return GetTokens(MiniPythonParser.IDENTIFIER); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode IDENTIFIER(int i) {
+			return GetToken(MiniPythonParser.IDENTIFIER, i);
 		}
 		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode[] COMMA() { return GetTokens(MiniPythonParser.COMMA); }
 		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode COMMA(int i) {
@@ -444,26 +497,26 @@ public partial class MiniPythonParser : Parser {
 	[RuleVersion(0)]
 	public ArgListContext argList() {
 		ArgListContext _localctx = new ArgListContext(Context, State);
-		EnterRule(_localctx, 6, RULE_argList);
+		EnterRule(_localctx, 8, RULE_argList);
 		int _la;
 		try {
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 78;
-			Match(ID);
-			State = 83;
+			State = 77;
+			Match(IDENTIFIER);
+			State = 82;
 			ErrorHandler.Sync(this);
 			_la = TokenStream.LA(1);
 			while (_la==COMMA) {
 				{
 				{
-				State = 79;
+				State = 78;
 				Match(COMMA);
-				State = 80;
-				Match(ID);
+				State = 79;
+				Match(IDENTIFIER);
 				}
 				}
-				State = 85;
+				State = 84;
 				ErrorHandler.Sync(this);
 				_la = TokenStream.LA(1);
 			}
@@ -485,17 +538,13 @@ public partial class MiniPythonParser : Parser {
 		[System.Diagnostics.DebuggerNonUserCode] public ExpressionContext expression() {
 			return GetRuleContext<ExpressionContext>(0);
 		}
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode[] DOSPUN() { return GetTokens(MiniPythonParser.DOSPUN); }
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode DOSPUN(int i) {
-			return GetToken(MiniPythonParser.DOSPUN, i);
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode[] DOSPUNTOS() { return GetTokens(MiniPythonParser.DOSPUNTOS); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode DOSPUNTOS(int i) {
+			return GetToken(MiniPythonParser.DOSPUNTOS, i);
 		}
 		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode[] NEWLINE() { return GetTokens(MiniPythonParser.NEWLINE); }
 		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode NEWLINE(int i) {
 			return GetToken(MiniPythonParser.NEWLINE, i);
-		}
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode[] INDENT() { return GetTokens(MiniPythonParser.INDENT); }
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode INDENT(int i) {
-			return GetToken(MiniPythonParser.INDENT, i);
 		}
 		[System.Diagnostics.DebuggerNonUserCode] public SequenceContext[] sequence() {
 			return GetRuleContexts<SequenceContext>();
@@ -530,40 +579,37 @@ public partial class MiniPythonParser : Parser {
 	[RuleVersion(0)]
 	public IfStatementContext ifStatement() {
 		IfStatementContext _localctx = new IfStatementContext(Context, State);
-		EnterRule(_localctx, 8, RULE_ifStatement);
+		EnterRule(_localctx, 10, RULE_ifStatement);
+		int _la;
 		try {
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 86;
+			State = 85;
 			Match(IF);
-			State = 87;
+			State = 86;
 			expression();
+			State = 87;
+			Match(DOSPUNTOS);
 			State = 88;
-			Match(DOSPUN);
-			State = 89;
 			Match(NEWLINE);
-			State = 90;
-			Match(INDENT);
-			State = 91;
+			State = 89;
 			sequence();
-			State = 97;
+			State = 94;
 			ErrorHandler.Sync(this);
-			switch ( Interpreter.AdaptivePredict(TokenStream,5,Context) ) {
-			case 1:
+			_la = TokenStream.LA(1);
+			if (_la==ELSE) {
 				{
-				State = 92;
+				State = 90;
 				Match(ELSE);
-				State = 93;
-				Match(DOSPUN);
-				State = 94;
+				State = 91;
+				Match(DOSPUNTOS);
+				State = 92;
 				Match(NEWLINE);
-				State = 95;
-				Match(INDENT);
-				State = 96;
+				State = 93;
 				sequence();
 				}
-				break;
 			}
+
 			}
 		}
 		catch (RecognitionException re) {
@@ -582,9 +628,8 @@ public partial class MiniPythonParser : Parser {
 		[System.Diagnostics.DebuggerNonUserCode] public ExpressionContext expression() {
 			return GetRuleContext<ExpressionContext>(0);
 		}
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode DOSPUN() { return GetToken(MiniPythonParser.DOSPUN, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode DOSPUNTOS() { return GetToken(MiniPythonParser.DOSPUNTOS, 0); }
 		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode NEWLINE() { return GetToken(MiniPythonParser.NEWLINE, 0); }
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode INDENT() { return GetToken(MiniPythonParser.INDENT, 0); }
 		[System.Diagnostics.DebuggerNonUserCode] public SequenceContext sequence() {
 			return GetRuleContext<SequenceContext>(0);
 		}
@@ -614,95 +659,19 @@ public partial class MiniPythonParser : Parser {
 	[RuleVersion(0)]
 	public WhileStatementContext whileStatement() {
 		WhileStatementContext _localctx = new WhileStatementContext(Context, State);
-		EnterRule(_localctx, 10, RULE_whileStatement);
+		EnterRule(_localctx, 12, RULE_whileStatement);
 		try {
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 99;
+			State = 96;
 			Match(WHILE);
+			State = 97;
+			expression();
+			State = 98;
+			Match(DOSPUNTOS);
+			State = 99;
+			Match(NEWLINE);
 			State = 100;
-			expression();
-			State = 101;
-			Match(DOSPUN);
-			State = 102;
-			Match(NEWLINE);
-			State = 103;
-			Match(INDENT);
-			State = 104;
-			sequence();
-			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
-			ErrorHandler.ReportError(this, re);
-			ErrorHandler.Recover(this, re);
-		}
-		finally {
-			ExitRule();
-		}
-		return _localctx;
-	}
-
-	public partial class ForStatementContext : ParserRuleContext {
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode FOR() { return GetToken(MiniPythonParser.FOR, 0); }
-		[System.Diagnostics.DebuggerNonUserCode] public ExpressionContext expression() {
-			return GetRuleContext<ExpressionContext>(0);
-		}
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode IN() { return GetToken(MiniPythonParser.IN, 0); }
-		[System.Diagnostics.DebuggerNonUserCode] public ExpressionListContext expressionList() {
-			return GetRuleContext<ExpressionListContext>(0);
-		}
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode DOSPUN() { return GetToken(MiniPythonParser.DOSPUN, 0); }
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode NEWLINE() { return GetToken(MiniPythonParser.NEWLINE, 0); }
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode INDENT() { return GetToken(MiniPythonParser.INDENT, 0); }
-		[System.Diagnostics.DebuggerNonUserCode] public SequenceContext sequence() {
-			return GetRuleContext<SequenceContext>(0);
-		}
-		public ForStatementContext(ParserRuleContext parent, int invokingState)
-			: base(parent, invokingState)
-		{
-		}
-		public override int RuleIndex { get { return RULE_forStatement; } }
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override void EnterRule(IParseTreeListener listener) {
-			IMiniPythonParserListener typedListener = listener as IMiniPythonParserListener;
-			if (typedListener != null) typedListener.EnterForStatement(this);
-		}
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override void ExitRule(IParseTreeListener listener) {
-			IMiniPythonParserListener typedListener = listener as IMiniPythonParserListener;
-			if (typedListener != null) typedListener.ExitForStatement(this);
-		}
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-			IMiniPythonParserVisitor<TResult> typedVisitor = visitor as IMiniPythonParserVisitor<TResult>;
-			if (typedVisitor != null) return typedVisitor.VisitForStatement(this);
-			else return visitor.VisitChildren(this);
-		}
-	}
-
-	[RuleVersion(0)]
-	public ForStatementContext forStatement() {
-		ForStatementContext _localctx = new ForStatementContext(Context, State);
-		EnterRule(_localctx, 12, RULE_forStatement);
-		try {
-			EnterOuterAlt(_localctx, 1);
-			{
-			State = 106;
-			Match(FOR);
-			State = 107;
-			expression();
-			State = 108;
-			Match(IN);
-			State = 109;
-			expressionList();
-			State = 110;
-			Match(DOSPUN);
-			State = 111;
-			Match(NEWLINE);
-			State = 112;
-			Match(INDENT);
-			State = 113;
 			sequence();
 			}
 		}
@@ -753,12 +722,83 @@ public partial class MiniPythonParser : Parser {
 		try {
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 115;
+			State = 102;
 			Match(RETURN);
-			State = 116;
+			State = 103;
 			expression();
-			State = 117;
+			State = 104;
 			Match(NEWLINE);
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			ErrorHandler.ReportError(this, re);
+			ErrorHandler.Recover(this, re);
+		}
+		finally {
+			ExitRule();
+		}
+		return _localctx;
+	}
+
+	public partial class ForStatementContext : ParserRuleContext {
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode FOR() { return GetToken(MiniPythonParser.FOR, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ExpressionContext expression() {
+			return GetRuleContext<ExpressionContext>(0);
+		}
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode IN() { return GetToken(MiniPythonParser.IN, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ExpressionListContext expressionList() {
+			return GetRuleContext<ExpressionListContext>(0);
+		}
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode DOSPUNTOS() { return GetToken(MiniPythonParser.DOSPUNTOS, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode NEWLINE() { return GetToken(MiniPythonParser.NEWLINE, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public SequenceContext sequence() {
+			return GetRuleContext<SequenceContext>(0);
+		}
+		public ForStatementContext(ParserRuleContext parent, int invokingState)
+			: base(parent, invokingState)
+		{
+		}
+		public override int RuleIndex { get { return RULE_forStatement; } }
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override void EnterRule(IParseTreeListener listener) {
+			IMiniPythonParserListener typedListener = listener as IMiniPythonParserListener;
+			if (typedListener != null) typedListener.EnterForStatement(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override void ExitRule(IParseTreeListener listener) {
+			IMiniPythonParserListener typedListener = listener as IMiniPythonParserListener;
+			if (typedListener != null) typedListener.ExitForStatement(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IMiniPythonParserVisitor<TResult> typedVisitor = visitor as IMiniPythonParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitForStatement(this);
+			else return visitor.VisitChildren(this);
+		}
+	}
+
+	[RuleVersion(0)]
+	public ForStatementContext forStatement() {
+		ForStatementContext _localctx = new ForStatementContext(Context, State);
+		EnterRule(_localctx, 16, RULE_forStatement);
+		try {
+			EnterOuterAlt(_localctx, 1);
+			{
+			State = 106;
+			Match(FOR);
+			State = 107;
+			expression();
+			State = 108;
+			Match(IN);
+			State = 109;
+			expressionList();
+			State = 110;
+			Match(DOSPUNTOS);
+			State = 111;
+			Match(NEWLINE);
+			State = 112;
+			sequence();
 			}
 		}
 		catch (RecognitionException re) {
@@ -774,10 +814,19 @@ public partial class MiniPythonParser : Parser {
 
 	public partial class PrintStatementContext : ParserRuleContext {
 		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode PRINT() { return GetToken(MiniPythonParser.PRINT, 0); }
-		[System.Diagnostics.DebuggerNonUserCode] public ExpressionContext expression() {
-			return GetRuleContext<ExpressionContext>(0);
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode LPAREN() { return GetToken(MiniPythonParser.LPAREN, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode RPAREN() { return GetToken(MiniPythonParser.RPAREN, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ExpressionContext[] expression() {
+			return GetRuleContexts<ExpressionContext>();
+		}
+		[System.Diagnostics.DebuggerNonUserCode] public ExpressionContext expression(int i) {
+			return GetRuleContext<ExpressionContext>(i);
 		}
 		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode NEWLINE() { return GetToken(MiniPythonParser.NEWLINE, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode[] COMMA() { return GetTokens(MiniPythonParser.COMMA); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode COMMA(int i) {
+			return GetToken(MiniPythonParser.COMMA, i);
+		}
 		public PrintStatementContext(ParserRuleContext parent, int invokingState)
 			: base(parent, invokingState)
 		{
@@ -804,16 +853,53 @@ public partial class MiniPythonParser : Parser {
 	[RuleVersion(0)]
 	public PrintStatementContext printStatement() {
 		PrintStatementContext _localctx = new PrintStatementContext(Context, State);
-		EnterRule(_localctx, 16, RULE_printStatement);
+		EnterRule(_localctx, 18, RULE_printStatement);
+		int _la;
 		try {
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 119;
+			State = 114;
 			Match(PRINT);
-			State = 120;
-			expression();
-			State = 121;
-			Match(NEWLINE);
+			State = 115;
+			Match(LPAREN);
+			State = 124;
+			ErrorHandler.Sync(this);
+			_la = TokenStream.LA(1);
+			if ((((_la) & ~0x3f) == 0 && ((1L << _la) & 1066494525440L) != 0)) {
+				{
+				State = 116;
+				expression();
+				State = 121;
+				ErrorHandler.Sync(this);
+				_la = TokenStream.LA(1);
+				while (_la==COMMA) {
+					{
+					{
+					State = 117;
+					Match(COMMA);
+					State = 118;
+					expression();
+					}
+					}
+					State = 123;
+					ErrorHandler.Sync(this);
+					_la = TokenStream.LA(1);
+				}
+				}
+			}
+
+			State = 126;
+			Match(RPAREN);
+			State = 128;
+			ErrorHandler.Sync(this);
+			_la = TokenStream.LA(1);
+			if (_la==NEWLINE) {
+				{
+				State = 127;
+				Match(NEWLINE);
+				}
+			}
+
 			}
 		}
 		catch (RecognitionException re) {
@@ -828,8 +914,8 @@ public partial class MiniPythonParser : Parser {
 	}
 
 	public partial class AssignStatementContext : ParserRuleContext {
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode ID() { return GetToken(MiniPythonParser.ID, 0); }
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode ASIGN() { return GetToken(MiniPythonParser.ASIGN, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode IDENTIFIER() { return GetToken(MiniPythonParser.IDENTIFIER, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode ASSIGN() { return GetToken(MiniPythonParser.ASSIGN, 0); }
 		[System.Diagnostics.DebuggerNonUserCode] public ExpressionContext expression() {
 			return GetRuleContext<ExpressionContext>(0);
 		}
@@ -860,17 +946,17 @@ public partial class MiniPythonParser : Parser {
 	[RuleVersion(0)]
 	public AssignStatementContext assignStatement() {
 		AssignStatementContext _localctx = new AssignStatementContext(Context, State);
-		EnterRule(_localctx, 18, RULE_assignStatement);
+		EnterRule(_localctx, 20, RULE_assignStatement);
 		try {
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 123;
-			Match(ID);
-			State = 124;
-			Match(ASIGN);
-			State = 125;
+			State = 130;
+			Match(IDENTIFIER);
+			State = 131;
+			Match(ASSIGN);
+			State = 132;
 			expression();
-			State = 126;
+			State = 133;
 			Match(NEWLINE);
 			}
 		}
@@ -886,13 +972,13 @@ public partial class MiniPythonParser : Parser {
 	}
 
 	public partial class FunctionCallStatementContext : ParserRuleContext {
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode ID() { return GetToken(MiniPythonParser.ID, 0); }
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode PIZQ() { return GetToken(MiniPythonParser.PIZQ, 0); }
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode PDER() { return GetToken(MiniPythonParser.PDER, 0); }
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode NEWLINE() { return GetToken(MiniPythonParser.NEWLINE, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode IDENTIFIER() { return GetToken(MiniPythonParser.IDENTIFIER, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode LPAREN() { return GetToken(MiniPythonParser.LPAREN, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode RPAREN() { return GetToken(MiniPythonParser.RPAREN, 0); }
 		[System.Diagnostics.DebuggerNonUserCode] public ExpressionListContext expressionList() {
 			return GetRuleContext<ExpressionListContext>(0);
 		}
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode NEWLINE() { return GetToken(MiniPythonParser.NEWLINE, 0); }
 		public FunctionCallStatementContext(ParserRuleContext parent, int invokingState)
 			: base(parent, invokingState)
 		{
@@ -919,29 +1005,37 @@ public partial class MiniPythonParser : Parser {
 	[RuleVersion(0)]
 	public FunctionCallStatementContext functionCallStatement() {
 		FunctionCallStatementContext _localctx = new FunctionCallStatementContext(Context, State);
-		EnterRule(_localctx, 20, RULE_functionCallStatement);
+		EnterRule(_localctx, 22, RULE_functionCallStatement);
 		int _la;
 		try {
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 128;
-			Match(ID);
-			State = 129;
-			Match(PIZQ);
-			State = 131;
+			State = 135;
+			Match(IDENTIFIER);
+			State = 136;
+			Match(LPAREN);
+			State = 138;
 			ErrorHandler.Sync(this);
 			_la = TokenStream.LA(1);
-			if ((((_la) & ~0x3f) == 0 && ((1L << _la) & 4035053056L) != 0)) {
+			if ((((_la) & ~0x3f) == 0 && ((1L << _la) & 1066494525440L) != 0)) {
 				{
-				State = 130;
+				State = 137;
 				expressionList();
 				}
 			}
 
-			State = 133;
-			Match(PDER);
-			State = 134;
-			Match(NEWLINE);
+			State = 140;
+			Match(RPAREN);
+			State = 142;
+			ErrorHandler.Sync(this);
+			_la = TokenStream.LA(1);
+			if (_la==NEWLINE) {
+				{
+				State = 141;
+				Match(NEWLINE);
+				}
+			}
+
 			}
 		}
 		catch (RecognitionException re) {
@@ -956,15 +1050,13 @@ public partial class MiniPythonParser : Parser {
 	}
 
 	public partial class SequenceContext : ParserRuleContext {
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode INDENT() { return GetToken(MiniPythonParser.INDENT, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode DEDENT() { return GetToken(MiniPythonParser.DEDENT, 0); }
 		[System.Diagnostics.DebuggerNonUserCode] public StatementContext[] statement() {
 			return GetRuleContexts<StatementContext>();
 		}
 		[System.Diagnostics.DebuggerNonUserCode] public StatementContext statement(int i) {
 			return GetRuleContext<StatementContext>(i);
-		}
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode[] NEWLINE() { return GetTokens(MiniPythonParser.NEWLINE); }
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode NEWLINE(int i) {
-			return GetToken(MiniPythonParser.NEWLINE, i);
 		}
 		public SequenceContext(ParserRuleContext parent, int invokingState)
 			: base(parent, invokingState)
@@ -992,162 +1084,29 @@ public partial class MiniPythonParser : Parser {
 	[RuleVersion(0)]
 	public SequenceContext sequence() {
 		SequenceContext _localctx = new SequenceContext(Context, State);
-		EnterRule(_localctx, 22, RULE_sequence);
+		EnterRule(_localctx, 24, RULE_sequence);
+		int _la;
 		try {
-			int _alt;
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 142;
+			State = 144;
+			Match(INDENT);
+			State = 146;
 			ErrorHandler.Sync(this);
-			_alt = Interpreter.AdaptivePredict(TokenStream,8,Context);
-			while ( _alt!=2 && _alt!=global::Antlr4.Runtime.Atn.ATN.INVALID_ALT_NUMBER ) {
-				if ( _alt==1 ) {
-					{
-					{
-					State = 136;
-					statement();
-					State = 138;
-					ErrorHandler.Sync(this);
-					switch ( Interpreter.AdaptivePredict(TokenStream,7,Context) ) {
-					case 1:
-						{
-						State = 137;
-						Match(NEWLINE);
-						}
-						break;
-					}
-					}
-					} 
-				}
-				State = 144;
-				ErrorHandler.Sync(this);
-				_alt = Interpreter.AdaptivePredict(TokenStream,8,Context);
-			}
-			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
-			ErrorHandler.ReportError(this, re);
-			ErrorHandler.Recover(this, re);
-		}
-		finally {
-			ExitRule();
-		}
-		return _localctx;
-	}
-
-	public partial class StatementContext : ParserRuleContext {
-		[System.Diagnostics.DebuggerNonUserCode] public DefStatementContext defStatement() {
-			return GetRuleContext<DefStatementContext>(0);
-		}
-		[System.Diagnostics.DebuggerNonUserCode] public IfStatementContext ifStatement() {
-			return GetRuleContext<IfStatementContext>(0);
-		}
-		[System.Diagnostics.DebuggerNonUserCode] public WhileStatementContext whileStatement() {
-			return GetRuleContext<WhileStatementContext>(0);
-		}
-		[System.Diagnostics.DebuggerNonUserCode] public ForStatementContext forStatement() {
-			return GetRuleContext<ForStatementContext>(0);
-		}
-		[System.Diagnostics.DebuggerNonUserCode] public ReturnStatementContext returnStatement() {
-			return GetRuleContext<ReturnStatementContext>(0);
-		}
-		[System.Diagnostics.DebuggerNonUserCode] public PrintStatementContext printStatement() {
-			return GetRuleContext<PrintStatementContext>(0);
-		}
-		[System.Diagnostics.DebuggerNonUserCode] public AssignStatementContext assignStatement() {
-			return GetRuleContext<AssignStatementContext>(0);
-		}
-		[System.Diagnostics.DebuggerNonUserCode] public FunctionCallStatementContext functionCallStatement() {
-			return GetRuleContext<FunctionCallStatementContext>(0);
-		}
-		public StatementContext(ParserRuleContext parent, int invokingState)
-			: base(parent, invokingState)
-		{
-		}
-		public override int RuleIndex { get { return RULE_statement; } }
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override void EnterRule(IParseTreeListener listener) {
-			IMiniPythonParserListener typedListener = listener as IMiniPythonParserListener;
-			if (typedListener != null) typedListener.EnterStatement(this);
-		}
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override void ExitRule(IParseTreeListener listener) {
-			IMiniPythonParserListener typedListener = listener as IMiniPythonParserListener;
-			if (typedListener != null) typedListener.ExitStatement(this);
-		}
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-			IMiniPythonParserVisitor<TResult> typedVisitor = visitor as IMiniPythonParserVisitor<TResult>;
-			if (typedVisitor != null) return typedVisitor.VisitStatement(this);
-			else return visitor.VisitChildren(this);
-		}
-	}
-
-	[RuleVersion(0)]
-	public StatementContext statement() {
-		StatementContext _localctx = new StatementContext(Context, State);
-		EnterRule(_localctx, 24, RULE_statement);
-		try {
-			State = 153;
-			ErrorHandler.Sync(this);
-			switch ( Interpreter.AdaptivePredict(TokenStream,9,Context) ) {
-			case 1:
-				EnterOuterAlt(_localctx, 1);
+			_la = TokenStream.LA(1);
+			do {
+				{
 				{
 				State = 145;
-				defStatement();
+				statement();
 				}
-				break;
-			case 2:
-				EnterOuterAlt(_localctx, 2);
-				{
-				State = 146;
-				ifStatement();
 				}
-				break;
-			case 3:
-				EnterOuterAlt(_localctx, 3);
-				{
-				State = 147;
-				whileStatement();
-				}
-				break;
-			case 4:
-				EnterOuterAlt(_localctx, 4);
-				{
 				State = 148;
-				forStatement();
-				}
-				break;
-			case 5:
-				EnterOuterAlt(_localctx, 5);
-				{
-				State = 149;
-				returnStatement();
-				}
-				break;
-			case 6:
-				EnterOuterAlt(_localctx, 6);
-				{
-				State = 150;
-				printStatement();
-				}
-				break;
-			case 7:
-				EnterOuterAlt(_localctx, 7);
-				{
-				State = 151;
-				assignStatement();
-				}
-				break;
-			case 8:
-				EnterOuterAlt(_localctx, 8);
-				{
-				State = 152;
-				functionCallStatement();
-				}
-				break;
+				ErrorHandler.Sync(this);
+				_la = TokenStream.LA(1);
+			} while ( (((_la) & ~0x3f) == 0 && ((1L << _la) & 549755845376L) != 0) );
+			State = 150;
+			Match(DEDENT);
 			}
 		}
 		catch (RecognitionException re) {
@@ -1199,14 +1158,14 @@ public partial class MiniPythonParser : Parser {
 		try {
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 155;
+			State = 152;
 			additionExpression();
-			State = 157;
+			State = 154;
 			ErrorHandler.Sync(this);
 			_la = TokenStream.LA(1);
-			if ((((_la) & ~0x3f) == 0 && ((1L << _la) & 251756544L) != 0)) {
+			if ((((_la) & ~0x3f) == 0 && ((1L << _la) & 65011712L) != 0)) {
 				{
-				State = 156;
+				State = 153;
 				comparison();
 				}
 			}
@@ -1228,12 +1187,11 @@ public partial class MiniPythonParser : Parser {
 		[System.Diagnostics.DebuggerNonUserCode] public AdditionExpressionContext additionExpression() {
 			return GetRuleContext<AdditionExpressionContext>(0);
 		}
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode GT() { return GetToken(MiniPythonParser.GT, 0); }
 		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode LT() { return GetToken(MiniPythonParser.LT, 0); }
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode GE() { return GetToken(MiniPythonParser.GE, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode GT() { return GetToken(MiniPythonParser.GT, 0); }
 		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode LE() { return GetToken(MiniPythonParser.LE, 0); }
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode EQEQ() { return GetToken(MiniPythonParser.EQEQ, 0); }
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode NOTEQ() { return GetToken(MiniPythonParser.NOTEQ, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode GE() { return GetToken(MiniPythonParser.GE, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode EQ() { return GetToken(MiniPythonParser.EQ, 0); }
 		public ComparisonContext(ParserRuleContext parent, int invokingState)
 			: base(parent, invokingState)
 		{
@@ -1265,16 +1223,16 @@ public partial class MiniPythonParser : Parser {
 		try {
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 159;
+			State = 156;
 			_la = TokenStream.LA(1);
-			if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & 251756544L) != 0)) ) {
+			if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & 65011712L) != 0)) ) {
 			ErrorHandler.RecoverInline(this);
 			}
 			else {
 				ErrorHandler.ReportMatch(this);
 			    Consume();
 			}
-			State = 160;
+			State = 157;
 			additionExpression();
 			}
 		}
@@ -1290,14 +1248,19 @@ public partial class MiniPythonParser : Parser {
 	}
 
 	public partial class AdditionExpressionContext : ParserRuleContext {
-		[System.Diagnostics.DebuggerNonUserCode] public MultiplicationExpressionContext multiplicationExpression() {
-			return GetRuleContext<MultiplicationExpressionContext>(0);
+		[System.Diagnostics.DebuggerNonUserCode] public MultiplicationExpressionContext[] multiplicationExpression() {
+			return GetRuleContexts<MultiplicationExpressionContext>();
 		}
-		[System.Diagnostics.DebuggerNonUserCode] public AdditionFactorContext[] additionFactor() {
-			return GetRuleContexts<AdditionFactorContext>();
+		[System.Diagnostics.DebuggerNonUserCode] public MultiplicationExpressionContext multiplicationExpression(int i) {
+			return GetRuleContext<MultiplicationExpressionContext>(i);
 		}
-		[System.Diagnostics.DebuggerNonUserCode] public AdditionFactorContext additionFactor(int i) {
-			return GetRuleContext<AdditionFactorContext>(i);
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode[] PLUS() { return GetTokens(MiniPythonParser.PLUS); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode PLUS(int i) {
+			return GetToken(MiniPythonParser.PLUS, i);
+		}
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode[] MINUS() { return GetTokens(MiniPythonParser.MINUS); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode MINUS(int i) {
+			return GetToken(MiniPythonParser.MINUS, i);
 		}
 		public AdditionExpressionContext(ParserRuleContext parent, int invokingState)
 			: base(parent, invokingState)
@@ -1330,19 +1293,28 @@ public partial class MiniPythonParser : Parser {
 		try {
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 162;
+			State = 159;
 			multiplicationExpression();
-			State = 166;
+			State = 164;
 			ErrorHandler.Sync(this);
 			_la = TokenStream.LA(1);
-			while (_la==SUM || _la==REST) {
+			while (_la==PLUS || _la==MINUS) {
 				{
 				{
-				State = 163;
-				additionFactor();
+				State = 160;
+				_la = TokenStream.LA(1);
+				if ( !(_la==PLUS || _la==MINUS) ) {
+				ErrorHandler.RecoverInline(this);
+				}
+				else {
+					ErrorHandler.ReportMatch(this);
+				    Consume();
+				}
+				State = 161;
+				multiplicationExpression();
 				}
 				}
-				State = 168;
+				State = 166;
 				ErrorHandler.Sync(this);
 				_la = TokenStream.LA(1);
 			}
@@ -1359,76 +1331,20 @@ public partial class MiniPythonParser : Parser {
 		return _localctx;
 	}
 
-	public partial class AdditionFactorContext : ParserRuleContext {
-		[System.Diagnostics.DebuggerNonUserCode] public MultiplicationExpressionContext multiplicationExpression() {
-			return GetRuleContext<MultiplicationExpressionContext>(0);
-		}
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode SUM() { return GetToken(MiniPythonParser.SUM, 0); }
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode REST() { return GetToken(MiniPythonParser.REST, 0); }
-		public AdditionFactorContext(ParserRuleContext parent, int invokingState)
-			: base(parent, invokingState)
-		{
-		}
-		public override int RuleIndex { get { return RULE_additionFactor; } }
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override void EnterRule(IParseTreeListener listener) {
-			IMiniPythonParserListener typedListener = listener as IMiniPythonParserListener;
-			if (typedListener != null) typedListener.EnterAdditionFactor(this);
-		}
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override void ExitRule(IParseTreeListener listener) {
-			IMiniPythonParserListener typedListener = listener as IMiniPythonParserListener;
-			if (typedListener != null) typedListener.ExitAdditionFactor(this);
-		}
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-			IMiniPythonParserVisitor<TResult> typedVisitor = visitor as IMiniPythonParserVisitor<TResult>;
-			if (typedVisitor != null) return typedVisitor.VisitAdditionFactor(this);
-			else return visitor.VisitChildren(this);
-		}
-	}
-
-	[RuleVersion(0)]
-	public AdditionFactorContext additionFactor() {
-		AdditionFactorContext _localctx = new AdditionFactorContext(Context, State);
-		EnterRule(_localctx, 32, RULE_additionFactor);
-		int _la;
-		try {
-			EnterOuterAlt(_localctx, 1);
-			{
-			State = 169;
-			_la = TokenStream.LA(1);
-			if ( !(_la==SUM || _la==REST) ) {
-			ErrorHandler.RecoverInline(this);
-			}
-			else {
-				ErrorHandler.ReportMatch(this);
-			    Consume();
-			}
-			State = 170;
-			multiplicationExpression();
-			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
-			ErrorHandler.ReportError(this, re);
-			ErrorHandler.Recover(this, re);
-		}
-		finally {
-			ExitRule();
-		}
-		return _localctx;
-	}
-
 	public partial class MultiplicationExpressionContext : ParserRuleContext {
-		[System.Diagnostics.DebuggerNonUserCode] public ElementExpressionContext elementExpression() {
-			return GetRuleContext<ElementExpressionContext>(0);
+		[System.Diagnostics.DebuggerNonUserCode] public ElementExpressionContext[] elementExpression() {
+			return GetRuleContexts<ElementExpressionContext>();
 		}
-		[System.Diagnostics.DebuggerNonUserCode] public MultiplicationFactorContext[] multiplicationFactor() {
-			return GetRuleContexts<MultiplicationFactorContext>();
+		[System.Diagnostics.DebuggerNonUserCode] public ElementExpressionContext elementExpression(int i) {
+			return GetRuleContext<ElementExpressionContext>(i);
 		}
-		[System.Diagnostics.DebuggerNonUserCode] public MultiplicationFactorContext multiplicationFactor(int i) {
-			return GetRuleContext<MultiplicationFactorContext>(i);
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode[] MULT() { return GetTokens(MiniPythonParser.MULT); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode MULT(int i) {
+			return GetToken(MiniPythonParser.MULT, i);
+		}
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode[] DIV() { return GetTokens(MiniPythonParser.DIV); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode DIV(int i) {
+			return GetToken(MiniPythonParser.DIV, i);
 		}
 		public MultiplicationExpressionContext(ParserRuleContext parent, int invokingState)
 			: base(parent, invokingState)
@@ -1456,89 +1372,36 @@ public partial class MiniPythonParser : Parser {
 	[RuleVersion(0)]
 	public MultiplicationExpressionContext multiplicationExpression() {
 		MultiplicationExpressionContext _localctx = new MultiplicationExpressionContext(Context, State);
-		EnterRule(_localctx, 34, RULE_multiplicationExpression);
+		EnterRule(_localctx, 32, RULE_multiplicationExpression);
 		int _la;
 		try {
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 172;
+			State = 167;
 			elementExpression();
-			State = 176;
+			State = 172;
 			ErrorHandler.Sync(this);
 			_la = TokenStream.LA(1);
-			while ((((_la) & ~0x3f) == 0 && ((1L << _la) & 3670016L) != 0)) {
+			while (_la==MULT || _la==DIV) {
 				{
 				{
-				State = 173;
-				multiplicationFactor();
+				State = 168;
+				_la = TokenStream.LA(1);
+				if ( !(_la==MULT || _la==DIV) ) {
+				ErrorHandler.RecoverInline(this);
+				}
+				else {
+					ErrorHandler.ReportMatch(this);
+				    Consume();
+				}
+				State = 169;
+				elementExpression();
 				}
 				}
-				State = 178;
+				State = 174;
 				ErrorHandler.Sync(this);
 				_la = TokenStream.LA(1);
 			}
-			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
-			ErrorHandler.ReportError(this, re);
-			ErrorHandler.Recover(this, re);
-		}
-		finally {
-			ExitRule();
-		}
-		return _localctx;
-	}
-
-	public partial class MultiplicationFactorContext : ParserRuleContext {
-		[System.Diagnostics.DebuggerNonUserCode] public ElementExpressionContext elementExpression() {
-			return GetRuleContext<ElementExpressionContext>(0);
-		}
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode MUL() { return GetToken(MiniPythonParser.MUL, 0); }
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode DIV() { return GetToken(MiniPythonParser.DIV, 0); }
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode MOD() { return GetToken(MiniPythonParser.MOD, 0); }
-		public MultiplicationFactorContext(ParserRuleContext parent, int invokingState)
-			: base(parent, invokingState)
-		{
-		}
-		public override int RuleIndex { get { return RULE_multiplicationFactor; } }
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override void EnterRule(IParseTreeListener listener) {
-			IMiniPythonParserListener typedListener = listener as IMiniPythonParserListener;
-			if (typedListener != null) typedListener.EnterMultiplicationFactor(this);
-		}
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override void ExitRule(IParseTreeListener listener) {
-			IMiniPythonParserListener typedListener = listener as IMiniPythonParserListener;
-			if (typedListener != null) typedListener.ExitMultiplicationFactor(this);
-		}
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-			IMiniPythonParserVisitor<TResult> typedVisitor = visitor as IMiniPythonParserVisitor<TResult>;
-			if (typedVisitor != null) return typedVisitor.VisitMultiplicationFactor(this);
-			else return visitor.VisitChildren(this);
-		}
-	}
-
-	[RuleVersion(0)]
-	public MultiplicationFactorContext multiplicationFactor() {
-		MultiplicationFactorContext _localctx = new MultiplicationFactorContext(Context, State);
-		EnterRule(_localctx, 36, RULE_multiplicationFactor);
-		int _la;
-		try {
-			EnterOuterAlt(_localctx, 1);
-			{
-			State = 179;
-			_la = TokenStream.LA(1);
-			if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & 3670016L) != 0)) ) {
-			ErrorHandler.RecoverInline(this);
-			}
-			else {
-				ErrorHandler.ReportMatch(this);
-			    Consume();
-			}
-			State = 180;
-			elementExpression();
 			}
 		}
 		catch (RecognitionException re) {
@@ -1556,9 +1419,11 @@ public partial class MiniPythonParser : Parser {
 		[System.Diagnostics.DebuggerNonUserCode] public PrimitiveExpressionContext primitiveExpression() {
 			return GetRuleContext<PrimitiveExpressionContext>(0);
 		}
-		[System.Diagnostics.DebuggerNonUserCode] public ElementAccessContext elementAccess() {
-			return GetRuleContext<ElementAccessContext>(0);
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode LBRACKET() { return GetToken(MiniPythonParser.LBRACKET, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ExpressionContext expression() {
+			return GetRuleContext<ExpressionContext>(0);
 		}
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode RBRACKET() { return GetToken(MiniPythonParser.RBRACKET, 0); }
 		public ElementExpressionContext(ParserRuleContext parent, int invokingState)
 			: base(parent, invokingState)
 		{
@@ -1585,78 +1450,27 @@ public partial class MiniPythonParser : Parser {
 	[RuleVersion(0)]
 	public ElementExpressionContext elementExpression() {
 		ElementExpressionContext _localctx = new ElementExpressionContext(Context, State);
-		EnterRule(_localctx, 38, RULE_elementExpression);
+		EnterRule(_localctx, 34, RULE_elementExpression);
 		int _la;
 		try {
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 182;
+			State = 175;
 			primitiveExpression();
-			State = 184;
+			State = 180;
 			ErrorHandler.Sync(this);
 			_la = TokenStream.LA(1);
 			if (_la==LBRACKET) {
 				{
-				State = 183;
-				elementAccess();
+				State = 176;
+				Match(LBRACKET);
+				State = 177;
+				expression();
+				State = 178;
+				Match(RBRACKET);
 				}
 			}
 
-			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
-			ErrorHandler.ReportError(this, re);
-			ErrorHandler.Recover(this, re);
-		}
-		finally {
-			ExitRule();
-		}
-		return _localctx;
-	}
-
-	public partial class ElementAccessContext : ParserRuleContext {
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode LBRACKET() { return GetToken(MiniPythonParser.LBRACKET, 0); }
-		[System.Diagnostics.DebuggerNonUserCode] public ExpressionContext expression() {
-			return GetRuleContext<ExpressionContext>(0);
-		}
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode RBRACKET() { return GetToken(MiniPythonParser.RBRACKET, 0); }
-		public ElementAccessContext(ParserRuleContext parent, int invokingState)
-			: base(parent, invokingState)
-		{
-		}
-		public override int RuleIndex { get { return RULE_elementAccess; } }
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override void EnterRule(IParseTreeListener listener) {
-			IMiniPythonParserListener typedListener = listener as IMiniPythonParserListener;
-			if (typedListener != null) typedListener.EnterElementAccess(this);
-		}
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override void ExitRule(IParseTreeListener listener) {
-			IMiniPythonParserListener typedListener = listener as IMiniPythonParserListener;
-			if (typedListener != null) typedListener.ExitElementAccess(this);
-		}
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-			IMiniPythonParserVisitor<TResult> typedVisitor = visitor as IMiniPythonParserVisitor<TResult>;
-			if (typedVisitor != null) return typedVisitor.VisitElementAccess(this);
-			else return visitor.VisitChildren(this);
-		}
-	}
-
-	[RuleVersion(0)]
-	public ElementAccessContext elementAccess() {
-		ElementAccessContext _localctx = new ElementAccessContext(Context, State);
-		EnterRule(_localctx, 40, RULE_elementAccess);
-		try {
-			EnterOuterAlt(_localctx, 1);
-			{
-			State = 186;
-			Match(LBRACKET);
-			State = 187;
-			expression();
-			State = 188;
-			Match(RBRACKET);
 			}
 		}
 		catch (RecognitionException re) {
@@ -1707,26 +1521,26 @@ public partial class MiniPythonParser : Parser {
 	[RuleVersion(0)]
 	public ExpressionListContext expressionList() {
 		ExpressionListContext _localctx = new ExpressionListContext(Context, State);
-		EnterRule(_localctx, 42, RULE_expressionList);
+		EnterRule(_localctx, 36, RULE_expressionList);
 		int _la;
 		try {
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 190;
+			State = 182;
 			expression();
-			State = 195;
+			State = 187;
 			ErrorHandler.Sync(this);
 			_la = TokenStream.LA(1);
 			while (_la==COMMA) {
 				{
 				{
-				State = 191;
+				State = 183;
 				Match(COMMA);
-				State = 192;
+				State = 184;
 				expression();
 				}
 				}
-				State = 197;
+				State = 189;
 				ErrorHandler.Sync(this);
 				_la = TokenStream.LA(1);
 			}
@@ -1744,41 +1558,135 @@ public partial class MiniPythonParser : Parser {
 	}
 
 	public partial class PrimitiveExpressionContext : ParserRuleContext {
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode NUM() { return GetToken(MiniPythonParser.NUM, 0); }
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode REST() { return GetToken(MiniPythonParser.REST, 0); }
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode FLOAT() { return GetToken(MiniPythonParser.FLOAT, 0); }
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode STRING() { return GetToken(MiniPythonParser.STRING, 0); }
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode ID() { return GetToken(MiniPythonParser.ID, 0); }
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode PIZQ() { return GetToken(MiniPythonParser.PIZQ, 0); }
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode PDER() { return GetToken(MiniPythonParser.PDER, 0); }
-		[System.Diagnostics.DebuggerNonUserCode] public ExpressionListContext expressionList() {
-			return GetRuleContext<ExpressionListContext>(0);
-		}
-		[System.Diagnostics.DebuggerNonUserCode] public ExpressionContext expression() {
-			return GetRuleContext<ExpressionContext>(0);
-		}
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode LBRACKET() { return GetToken(MiniPythonParser.LBRACKET, 0); }
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode RBRACKET() { return GetToken(MiniPythonParser.RBRACKET, 0); }
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode LEN() { return GetToken(MiniPythonParser.LEN, 0); }
 		public PrimitiveExpressionContext(ParserRuleContext parent, int invokingState)
 			: base(parent, invokingState)
 		{
 		}
 		public override int RuleIndex { get { return RULE_primitiveExpression; } }
+	 
+		public PrimitiveExpressionContext() { }
+		public virtual void CopyFrom(PrimitiveExpressionContext context) {
+			base.CopyFrom(context);
+		}
+	}
+	public partial class PrimitiveExpressionlenASTContext : PrimitiveExpressionContext {
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode LEN() { return GetToken(MiniPythonParser.LEN, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode LPAREN() { return GetToken(MiniPythonParser.LPAREN, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ExpressionContext expression() {
+			return GetRuleContext<ExpressionContext>(0);
+		}
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode RPAREN() { return GetToken(MiniPythonParser.RPAREN, 0); }
+		public PrimitiveExpressionlenASTContext(PrimitiveExpressionContext context) { CopyFrom(context); }
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void EnterRule(IParseTreeListener listener) {
 			IMiniPythonParserListener typedListener = listener as IMiniPythonParserListener;
-			if (typedListener != null) typedListener.EnterPrimitiveExpression(this);
+			if (typedListener != null) typedListener.EnterPrimitiveExpressionlenAST(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void ExitRule(IParseTreeListener listener) {
 			IMiniPythonParserListener typedListener = listener as IMiniPythonParserListener;
-			if (typedListener != null) typedListener.ExitPrimitiveExpression(this);
+			if (typedListener != null) typedListener.ExitPrimitiveExpressionlenAST(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
 			IMiniPythonParserVisitor<TResult> typedVisitor = visitor as IMiniPythonParserVisitor<TResult>;
-			if (typedVisitor != null) return typedVisitor.VisitPrimitiveExpression(this);
+			if (typedVisitor != null) return typedVisitor.VisitPrimitiveExpressionlenAST(this);
+			else return visitor.VisitChildren(this);
+		}
+	}
+	public partial class PrimitiveExpressionlistASTContext : PrimitiveExpressionContext {
+		[System.Diagnostics.DebuggerNonUserCode] public ListExpressionContext listExpression() {
+			return GetRuleContext<ListExpressionContext>(0);
+		}
+		public PrimitiveExpressionlistASTContext(PrimitiveExpressionContext context) { CopyFrom(context); }
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override void EnterRule(IParseTreeListener listener) {
+			IMiniPythonParserListener typedListener = listener as IMiniPythonParserListener;
+			if (typedListener != null) typedListener.EnterPrimitiveExpressionlistAST(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override void ExitRule(IParseTreeListener listener) {
+			IMiniPythonParserListener typedListener = listener as IMiniPythonParserListener;
+			if (typedListener != null) typedListener.ExitPrimitiveExpressionlistAST(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IMiniPythonParserVisitor<TResult> typedVisitor = visitor as IMiniPythonParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitPrimitiveExpressionlistAST(this);
+			else return visitor.VisitChildren(this);
+		}
+	}
+	public partial class PrimitiveExpressionliteralASTContext : PrimitiveExpressionContext {
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode INTEGER() { return GetToken(MiniPythonParser.INTEGER, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode FLOAT() { return GetToken(MiniPythonParser.FLOAT, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode CHARCONST() { return GetToken(MiniPythonParser.CHARCONST, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode STRING() { return GetToken(MiniPythonParser.STRING, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode PLUS() { return GetToken(MiniPythonParser.PLUS, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode MINUS() { return GetToken(MiniPythonParser.MINUS, 0); }
+		public PrimitiveExpressionliteralASTContext(PrimitiveExpressionContext context) { CopyFrom(context); }
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override void EnterRule(IParseTreeListener listener) {
+			IMiniPythonParserListener typedListener = listener as IMiniPythonParserListener;
+			if (typedListener != null) typedListener.EnterPrimitiveExpressionliteralAST(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override void ExitRule(IParseTreeListener listener) {
+			IMiniPythonParserListener typedListener = listener as IMiniPythonParserListener;
+			if (typedListener != null) typedListener.ExitPrimitiveExpressionliteralAST(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IMiniPythonParserVisitor<TResult> typedVisitor = visitor as IMiniPythonParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitPrimitiveExpressionliteralAST(this);
+			else return visitor.VisitChildren(this);
+		}
+	}
+	public partial class PrimitiveExpressionparenthesisExprASTContext : PrimitiveExpressionContext {
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode LPAREN() { return GetToken(MiniPythonParser.LPAREN, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ExpressionContext expression() {
+			return GetRuleContext<ExpressionContext>(0);
+		}
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode RPAREN() { return GetToken(MiniPythonParser.RPAREN, 0); }
+		public PrimitiveExpressionparenthesisExprASTContext(PrimitiveExpressionContext context) { CopyFrom(context); }
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override void EnterRule(IParseTreeListener listener) {
+			IMiniPythonParserListener typedListener = listener as IMiniPythonParserListener;
+			if (typedListener != null) typedListener.EnterPrimitiveExpressionparenthesisExprAST(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override void ExitRule(IParseTreeListener listener) {
+			IMiniPythonParserListener typedListener = listener as IMiniPythonParserListener;
+			if (typedListener != null) typedListener.ExitPrimitiveExpressionparenthesisExprAST(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IMiniPythonParserVisitor<TResult> typedVisitor = visitor as IMiniPythonParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitPrimitiveExpressionparenthesisExprAST(this);
+			else return visitor.VisitChildren(this);
+		}
+	}
+	public partial class PrimitiveExpressionidentifierListASTContext : PrimitiveExpressionContext {
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode IDENTIFIER() { return GetToken(MiniPythonParser.IDENTIFIER, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode LPAREN() { return GetToken(MiniPythonParser.LPAREN, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode RPAREN() { return GetToken(MiniPythonParser.RPAREN, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ExpressionListContext expressionList() {
+			return GetRuleContext<ExpressionListContext>(0);
+		}
+		public PrimitiveExpressionidentifierListASTContext(PrimitiveExpressionContext context) { CopyFrom(context); }
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override void EnterRule(IParseTreeListener listener) {
+			IMiniPythonParserListener typedListener = listener as IMiniPythonParserListener;
+			if (typedListener != null) typedListener.EnterPrimitiveExpressionidentifierListAST(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override void ExitRule(IParseTreeListener listener) {
+			IMiniPythonParserListener typedListener = listener as IMiniPythonParserListener;
+			if (typedListener != null) typedListener.ExitPrimitiveExpressionidentifierListAST(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IMiniPythonParserVisitor<TResult> typedVisitor = visitor as IMiniPythonParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitPrimitiveExpressionidentifierListAST(this);
 			else return visitor.VisitChildren(this);
 		}
 	}
@@ -1786,129 +1694,179 @@ public partial class MiniPythonParser : Parser {
 	[RuleVersion(0)]
 	public PrimitiveExpressionContext primitiveExpression() {
 		PrimitiveExpressionContext _localctx = new PrimitiveExpressionContext(Context, State);
-		EnterRule(_localctx, 44, RULE_primitiveExpression);
+		EnterRule(_localctx, 38, RULE_primitiveExpression);
 		int _la;
 		try {
-			State = 229;
+			State = 212;
 			ErrorHandler.Sync(this);
-			switch ( Interpreter.AdaptivePredict(TokenStream,20,Context) ) {
-			case 1:
+			switch (TokenStream.LA(1)) {
+			case LPAREN:
+				_localctx = new PrimitiveExpressionparenthesisExprASTContext(_localctx);
 				EnterOuterAlt(_localctx, 1);
 				{
-				{
-				State = 199;
-				ErrorHandler.Sync(this);
-				_la = TokenStream.LA(1);
-				if (_la==REST) {
-					{
-					State = 198;
-					Match(REST);
-					}
-				}
-
-				State = 201;
-				Match(NUM);
-				}
+				State = 190;
+				Match(LPAREN);
+				State = 191;
+				expression();
+				State = 192;
+				Match(RPAREN);
 				}
 				break;
-			case 2:
+			case LEN:
+				_localctx = new PrimitiveExpressionlenASTContext(_localctx);
 				EnterOuterAlt(_localctx, 2);
 				{
+				State = 194;
+				Match(LEN);
+				State = 195;
+				Match(LPAREN);
+				State = 196;
+				expression();
+				State = 197;
+				Match(RPAREN);
+				}
+				break;
+			case LBRACKET:
+				_localctx = new PrimitiveExpressionlistASTContext(_localctx);
+				EnterOuterAlt(_localctx, 3);
 				{
-				State = 203;
+				State = 199;
+				listExpression();
+				}
+				break;
+			case PLUS:
+			case MINUS:
+			case INTEGER:
+			case FLOAT:
+			case CHARCONST:
+			case STRING:
+				_localctx = new PrimitiveExpressionliteralASTContext(_localctx);
+				EnterOuterAlt(_localctx, 4);
+				{
+				State = 201;
 				ErrorHandler.Sync(this);
 				_la = TokenStream.LA(1);
-				if (_la==REST) {
+				if (_la==PLUS || _la==MINUS) {
 					{
-					State = 202;
-					Match(REST);
+					State = 200;
+					_la = TokenStream.LA(1);
+					if ( !(_la==PLUS || _la==MINUS) ) {
+					ErrorHandler.RecoverInline(this);
+					}
+					else {
+						ErrorHandler.ReportMatch(this);
+					    Consume();
+					}
 					}
 				}
 
-				State = 205;
-				Match(FLOAT);
+				State = 203;
+				_la = TokenStream.LA(1);
+				if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & 515396075520L) != 0)) ) {
+				ErrorHandler.RecoverInline(this);
+				}
+				else {
+					ErrorHandler.ReportMatch(this);
+				    Consume();
 				}
 				}
 				break;
-			case 3:
-				EnterOuterAlt(_localctx, 3);
+			case IDENTIFIER:
+				_localctx = new PrimitiveExpressionidentifierListASTContext(_localctx);
+				EnterOuterAlt(_localctx, 5);
 				{
-				State = 206;
-				Match(STRING);
-				}
-				break;
-			case 4:
-				EnterOuterAlt(_localctx, 4);
-				{
-				State = 207;
-				Match(ID);
-				State = 213;
+				State = 204;
+				Match(IDENTIFIER);
+				State = 210;
 				ErrorHandler.Sync(this);
 				_la = TokenStream.LA(1);
-				if (_la==PIZQ) {
+				if (_la==LPAREN) {
 					{
-					State = 208;
-					Match(PIZQ);
-					State = 210;
+					State = 205;
+					Match(LPAREN);
+					State = 207;
 					ErrorHandler.Sync(this);
 					_la = TokenStream.LA(1);
-					if ((((_la) & ~0x3f) == 0 && ((1L << _la) & 4035053056L) != 0)) {
+					if ((((_la) & ~0x3f) == 0 && ((1L << _la) & 1066494525440L) != 0)) {
 						{
-						State = 209;
+						State = 206;
 						expressionList();
 						}
 					}
 
-					State = 212;
-					Match(PDER);
+					State = 209;
+					Match(RPAREN);
 					}
 				}
 
 				}
 				break;
-			case 5:
-				EnterOuterAlt(_localctx, 5);
+			default:
+				throw new NoViableAltException(this);
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			ErrorHandler.ReportError(this, re);
+			ErrorHandler.Recover(this, re);
+		}
+		finally {
+			ExitRule();
+		}
+		return _localctx;
+	}
+
+	public partial class ListExpressionContext : ParserRuleContext {
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode LBRACKET() { return GetToken(MiniPythonParser.LBRACKET, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode RBRACKET() { return GetToken(MiniPythonParser.RBRACKET, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ExpressionListContext expressionList() {
+			return GetRuleContext<ExpressionListContext>(0);
+		}
+		public ListExpressionContext(ParserRuleContext parent, int invokingState)
+			: base(parent, invokingState)
+		{
+		}
+		public override int RuleIndex { get { return RULE_listExpression; } }
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override void EnterRule(IParseTreeListener listener) {
+			IMiniPythonParserListener typedListener = listener as IMiniPythonParserListener;
+			if (typedListener != null) typedListener.EnterListExpression(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override void ExitRule(IParseTreeListener listener) {
+			IMiniPythonParserListener typedListener = listener as IMiniPythonParserListener;
+			if (typedListener != null) typedListener.ExitListExpression(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IMiniPythonParserVisitor<TResult> typedVisitor = visitor as IMiniPythonParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitListExpression(this);
+			else return visitor.VisitChildren(this);
+		}
+	}
+
+	[RuleVersion(0)]
+	public ListExpressionContext listExpression() {
+		ListExpressionContext _localctx = new ListExpressionContext(Context, State);
+		EnterRule(_localctx, 40, RULE_listExpression);
+		int _la;
+		try {
+			EnterOuterAlt(_localctx, 1);
+			{
+			State = 214;
+			Match(LBRACKET);
+			State = 216;
+			ErrorHandler.Sync(this);
+			_la = TokenStream.LA(1);
+			if ((((_la) & ~0x3f) == 0 && ((1L << _la) & 1066494525440L) != 0)) {
 				{
 				State = 215;
-				Match(PIZQ);
-				State = 216;
-				expression();
-				State = 217;
-				Match(PDER);
+				expressionList();
 				}
-				break;
-			case 6:
-				EnterOuterAlt(_localctx, 6);
-				{
-				State = 219;
-				Match(LBRACKET);
-				State = 221;
-				ErrorHandler.Sync(this);
-				_la = TokenStream.LA(1);
-				if ((((_la) & ~0x3f) == 0 && ((1L << _la) & 4035053056L) != 0)) {
-					{
-					State = 220;
-					expressionList();
-					}
-				}
+			}
 
-				State = 223;
-				Match(RBRACKET);
-				}
-				break;
-			case 7:
-				EnterOuterAlt(_localctx, 7);
-				{
-				State = 224;
-				Match(LEN);
-				State = 225;
-				Match(PIZQ);
-				State = 226;
-				expression();
-				State = 227;
-				Match(PDER);
-				}
-				break;
+			State = 218;
+			Match(RBRACKET);
 			}
 		}
 		catch (RecognitionException re) {
@@ -1923,81 +1881,76 @@ public partial class MiniPythonParser : Parser {
 	}
 
 	private static int[] _serializedATN = {
-		4,1,36,232,2,0,7,0,2,1,7,1,2,2,7,2,2,3,7,3,2,4,7,4,2,5,7,5,2,6,7,6,2,7,
+		4,1,39,221,2,0,7,0,2,1,7,1,2,2,7,2,2,3,7,3,2,4,7,4,2,5,7,5,2,6,7,6,2,7,
 		7,7,2,8,7,8,2,9,7,9,2,10,7,10,2,11,7,11,2,12,7,12,2,13,7,13,2,14,7,14,
-		2,15,7,15,2,16,7,16,2,17,7,17,2,18,7,18,2,19,7,19,2,20,7,20,2,21,7,21,
-		2,22,7,22,1,0,1,0,5,0,49,8,0,10,0,12,0,52,9,0,1,0,1,0,1,1,1,1,1,1,1,1,
-		1,1,1,1,1,1,1,1,3,1,64,8,1,1,2,1,2,1,2,1,2,3,2,70,8,2,1,2,1,2,1,2,1,2,
-		1,2,1,2,1,2,1,3,1,3,1,3,5,3,82,8,3,10,3,12,3,85,9,3,1,4,1,4,1,4,1,4,1,
-		4,1,4,1,4,1,4,1,4,1,4,1,4,3,4,98,8,4,1,5,1,5,1,5,1,5,1,5,1,5,1,5,1,6,1,
-		6,1,6,1,6,1,6,1,6,1,6,1,6,1,6,1,7,1,7,1,7,1,7,1,8,1,8,1,8,1,8,1,9,1,9,
-		1,9,1,9,1,9,1,10,1,10,1,10,3,10,132,8,10,1,10,1,10,1,10,1,11,1,11,3,11,
-		139,8,11,5,11,141,8,11,10,11,12,11,144,9,11,1,12,1,12,1,12,1,12,1,12,1,
-		12,1,12,1,12,3,12,154,8,12,1,13,1,13,3,13,158,8,13,1,14,1,14,1,14,1,15,
-		1,15,5,15,165,8,15,10,15,12,15,168,9,15,1,16,1,16,1,16,1,17,1,17,5,17,
-		175,8,17,10,17,12,17,178,9,17,1,18,1,18,1,18,1,19,1,19,3,19,185,8,19,1,
-		20,1,20,1,20,1,20,1,21,1,21,1,21,5,21,194,8,21,10,21,12,21,197,9,21,1,
-		22,3,22,200,8,22,1,22,1,22,3,22,204,8,22,1,22,1,22,1,22,1,22,1,22,3,22,
-		211,8,22,1,22,3,22,214,8,22,1,22,1,22,1,22,1,22,1,22,1,22,3,22,222,8,22,
-		1,22,1,22,1,22,1,22,1,22,1,22,3,22,230,8,22,1,22,0,0,23,0,2,4,6,8,10,12,
-		14,16,18,20,22,24,26,28,30,32,34,36,38,40,42,44,0,3,2,0,15,16,24,27,1,
-		0,22,23,1,0,19,21,246,0,50,1,0,0,0,2,63,1,0,0,0,4,65,1,0,0,0,6,78,1,0,
-		0,0,8,86,1,0,0,0,10,99,1,0,0,0,12,106,1,0,0,0,14,115,1,0,0,0,16,119,1,
-		0,0,0,18,123,1,0,0,0,20,128,1,0,0,0,22,142,1,0,0,0,24,153,1,0,0,0,26,155,
-		1,0,0,0,28,159,1,0,0,0,30,162,1,0,0,0,32,169,1,0,0,0,34,172,1,0,0,0,36,
-		179,1,0,0,0,38,182,1,0,0,0,40,186,1,0,0,0,42,190,1,0,0,0,44,229,1,0,0,
-		0,46,49,3,2,1,0,47,49,5,35,0,0,48,46,1,0,0,0,48,47,1,0,0,0,49,52,1,0,0,
-		0,50,48,1,0,0,0,50,51,1,0,0,0,51,53,1,0,0,0,52,50,1,0,0,0,53,54,5,0,0,
-		1,54,1,1,0,0,0,55,64,3,4,2,0,56,64,3,18,9,0,57,64,3,8,4,0,58,64,3,10,5,
-		0,59,64,3,12,6,0,60,64,3,16,8,0,61,64,3,14,7,0,62,64,3,20,10,0,63,55,1,
-		0,0,0,63,56,1,0,0,0,63,57,1,0,0,0,63,58,1,0,0,0,63,59,1,0,0,0,63,60,1,
-		0,0,0,63,61,1,0,0,0,63,62,1,0,0,0,64,3,1,0,0,0,65,66,5,4,0,0,66,67,5,28,
-		0,0,67,69,5,10,0,0,68,70,3,6,3,0,69,68,1,0,0,0,69,70,1,0,0,0,70,71,1,0,
-		0,0,71,72,5,11,0,0,72,73,5,12,0,0,73,74,5,35,0,0,74,75,5,36,0,0,75,76,
-		3,22,11,0,76,77,5,35,0,0,77,5,1,0,0,0,78,83,5,28,0,0,79,80,5,14,0,0,80,
-		82,5,28,0,0,81,79,1,0,0,0,82,85,1,0,0,0,83,81,1,0,0,0,83,84,1,0,0,0,84,
-		7,1,0,0,0,85,83,1,0,0,0,86,87,5,1,0,0,87,88,3,26,13,0,88,89,5,12,0,0,89,
-		90,5,35,0,0,90,91,5,36,0,0,91,97,3,22,11,0,92,93,5,2,0,0,93,94,5,12,0,
-		0,94,95,5,35,0,0,95,96,5,36,0,0,96,98,3,22,11,0,97,92,1,0,0,0,97,98,1,
-		0,0,0,98,9,1,0,0,0,99,100,5,6,0,0,100,101,3,26,13,0,101,102,5,12,0,0,102,
-		103,5,35,0,0,103,104,5,36,0,0,104,105,3,22,11,0,105,11,1,0,0,0,106,107,
-		5,7,0,0,107,108,3,26,13,0,108,109,5,8,0,0,109,110,3,42,21,0,110,111,5,
-		12,0,0,111,112,5,35,0,0,112,113,5,36,0,0,113,114,3,22,11,0,114,13,1,0,
-		0,0,115,116,5,5,0,0,116,117,3,26,13,0,117,118,5,35,0,0,118,15,1,0,0,0,
-		119,120,5,3,0,0,120,121,3,26,13,0,121,122,5,35,0,0,122,17,1,0,0,0,123,
-		124,5,28,0,0,124,125,5,13,0,0,125,126,3,26,13,0,126,127,5,35,0,0,127,19,
-		1,0,0,0,128,129,5,28,0,0,129,131,5,10,0,0,130,132,3,42,21,0,131,130,1,
-		0,0,0,131,132,1,0,0,0,132,133,1,0,0,0,133,134,5,11,0,0,134,135,5,35,0,
-		0,135,21,1,0,0,0,136,138,3,24,12,0,137,139,5,35,0,0,138,137,1,0,0,0,138,
-		139,1,0,0,0,139,141,1,0,0,0,140,136,1,0,0,0,141,144,1,0,0,0,142,140,1,
-		0,0,0,142,143,1,0,0,0,143,23,1,0,0,0,144,142,1,0,0,0,145,154,3,4,2,0,146,
-		154,3,8,4,0,147,154,3,10,5,0,148,154,3,12,6,0,149,154,3,14,7,0,150,154,
-		3,16,8,0,151,154,3,18,9,0,152,154,3,20,10,0,153,145,1,0,0,0,153,146,1,
-		0,0,0,153,147,1,0,0,0,153,148,1,0,0,0,153,149,1,0,0,0,153,150,1,0,0,0,
-		153,151,1,0,0,0,153,152,1,0,0,0,154,25,1,0,0,0,155,157,3,30,15,0,156,158,
-		3,28,14,0,157,156,1,0,0,0,157,158,1,0,0,0,158,27,1,0,0,0,159,160,7,0,0,
-		0,160,161,3,30,15,0,161,29,1,0,0,0,162,166,3,34,17,0,163,165,3,32,16,0,
-		164,163,1,0,0,0,165,168,1,0,0,0,166,164,1,0,0,0,166,167,1,0,0,0,167,31,
-		1,0,0,0,168,166,1,0,0,0,169,170,7,1,0,0,170,171,3,34,17,0,171,33,1,0,0,
-		0,172,176,3,38,19,0,173,175,3,36,18,0,174,173,1,0,0,0,175,178,1,0,0,0,
-		176,174,1,0,0,0,176,177,1,0,0,0,177,35,1,0,0,0,178,176,1,0,0,0,179,180,
-		7,2,0,0,180,181,3,38,19,0,181,37,1,0,0,0,182,184,3,44,22,0,183,185,3,40,
-		20,0,184,183,1,0,0,0,184,185,1,0,0,0,185,39,1,0,0,0,186,187,5,17,0,0,187,
-		188,3,26,13,0,188,189,5,18,0,0,189,41,1,0,0,0,190,195,3,26,13,0,191,192,
-		5,14,0,0,192,194,3,26,13,0,193,191,1,0,0,0,194,197,1,0,0,0,195,193,1,0,
-		0,0,195,196,1,0,0,0,196,43,1,0,0,0,197,195,1,0,0,0,198,200,5,23,0,0,199,
-		198,1,0,0,0,199,200,1,0,0,0,200,201,1,0,0,0,201,230,5,29,0,0,202,204,5,
-		23,0,0,203,202,1,0,0,0,203,204,1,0,0,0,204,205,1,0,0,0,205,230,5,30,0,
-		0,206,230,5,31,0,0,207,213,5,28,0,0,208,210,5,10,0,0,209,211,3,42,21,0,
-		210,209,1,0,0,0,210,211,1,0,0,0,211,212,1,0,0,0,212,214,5,11,0,0,213,208,
-		1,0,0,0,213,214,1,0,0,0,214,230,1,0,0,0,215,216,5,10,0,0,216,217,3,26,
-		13,0,217,218,5,11,0,0,218,230,1,0,0,0,219,221,5,17,0,0,220,222,3,42,21,
-		0,221,220,1,0,0,0,221,222,1,0,0,0,222,223,1,0,0,0,223,230,5,18,0,0,224,
-		225,5,9,0,0,225,226,5,10,0,0,226,227,3,26,13,0,227,228,5,11,0,0,228,230,
-		1,0,0,0,229,199,1,0,0,0,229,203,1,0,0,0,229,206,1,0,0,0,229,207,1,0,0,
-		0,229,215,1,0,0,0,229,219,1,0,0,0,229,224,1,0,0,0,230,45,1,0,0,0,21,48,
-		50,63,69,83,97,131,138,142,153,157,166,176,184,195,199,203,210,213,221,
-		229
+		2,15,7,15,2,16,7,16,2,17,7,17,2,18,7,18,2,19,7,19,2,20,7,20,1,0,5,0,44,
+		8,0,10,0,12,0,47,9,0,1,0,1,0,1,1,1,1,1,1,1,1,3,1,55,8,1,1,2,1,2,1,2,1,
+		2,1,2,1,2,1,2,1,2,3,2,65,8,2,1,3,1,3,1,3,1,3,3,3,71,8,3,1,3,1,3,1,3,1,
+		3,1,3,1,4,1,4,1,4,5,4,81,8,4,10,4,12,4,84,9,4,1,5,1,5,1,5,1,5,1,5,1,5,
+		1,5,1,5,1,5,3,5,95,8,5,1,6,1,6,1,6,1,6,1,6,1,6,1,7,1,7,1,7,1,7,1,8,1,8,
+		1,8,1,8,1,8,1,8,1,8,1,8,1,9,1,9,1,9,1,9,1,9,5,9,120,8,9,10,9,12,9,123,
+		9,9,3,9,125,8,9,1,9,1,9,3,9,129,8,9,1,10,1,10,1,10,1,10,1,10,1,11,1,11,
+		1,11,3,11,139,8,11,1,11,1,11,3,11,143,8,11,1,12,1,12,4,12,147,8,12,11,
+		12,12,12,148,1,12,1,12,1,13,1,13,3,13,155,8,13,1,14,1,14,1,14,1,15,1,15,
+		1,15,5,15,163,8,15,10,15,12,15,166,9,15,1,16,1,16,1,16,5,16,171,8,16,10,
+		16,12,16,174,9,16,1,17,1,17,1,17,1,17,1,17,3,17,181,8,17,1,18,1,18,1,18,
+		5,18,186,8,18,10,18,12,18,189,9,18,1,19,1,19,1,19,1,19,1,19,1,19,1,19,
+		1,19,1,19,1,19,1,19,3,19,202,8,19,1,19,1,19,1,19,1,19,3,19,208,8,19,1,
+		19,3,19,211,8,19,3,19,213,8,19,1,20,1,20,3,20,217,8,20,1,20,1,20,1,20,
+		0,0,21,0,2,4,6,8,10,12,14,16,18,20,22,24,26,28,30,32,34,36,38,40,0,4,1,
+		0,21,25,1,0,17,18,1,0,19,20,1,0,35,38,232,0,45,1,0,0,0,2,54,1,0,0,0,4,
+		64,1,0,0,0,6,66,1,0,0,0,8,77,1,0,0,0,10,85,1,0,0,0,12,96,1,0,0,0,14,102,
+		1,0,0,0,16,106,1,0,0,0,18,114,1,0,0,0,20,130,1,0,0,0,22,135,1,0,0,0,24,
+		144,1,0,0,0,26,152,1,0,0,0,28,156,1,0,0,0,30,159,1,0,0,0,32,167,1,0,0,
+		0,34,175,1,0,0,0,36,182,1,0,0,0,38,212,1,0,0,0,40,214,1,0,0,0,42,44,3,
+		2,1,0,43,42,1,0,0,0,44,47,1,0,0,0,45,43,1,0,0,0,45,46,1,0,0,0,46,48,1,
+		0,0,0,47,45,1,0,0,0,48,49,5,0,0,1,49,1,1,0,0,0,50,55,3,6,3,0,51,55,3,20,
+		10,0,52,55,3,22,11,0,53,55,3,18,9,0,54,50,1,0,0,0,54,51,1,0,0,0,54,52,
+		1,0,0,0,54,53,1,0,0,0,55,3,1,0,0,0,56,65,3,6,3,0,57,65,3,10,5,0,58,65,
+		3,14,7,0,59,65,3,18,9,0,60,65,3,12,6,0,61,65,3,20,10,0,62,65,3,16,8,0,
+		63,65,3,22,11,0,64,56,1,0,0,0,64,57,1,0,0,0,64,58,1,0,0,0,64,59,1,0,0,
+		0,64,60,1,0,0,0,64,61,1,0,0,0,64,62,1,0,0,0,64,63,1,0,0,0,65,5,1,0,0,0,
+		66,67,5,8,0,0,67,68,5,39,0,0,68,70,5,28,0,0,69,71,3,8,4,0,70,69,1,0,0,
+		0,70,71,1,0,0,0,71,72,1,0,0,0,72,73,5,29,0,0,73,74,5,34,0,0,74,75,5,1,
+		0,0,75,76,3,24,12,0,76,7,1,0,0,0,77,82,5,39,0,0,78,79,5,27,0,0,79,81,5,
+		39,0,0,80,78,1,0,0,0,81,84,1,0,0,0,82,80,1,0,0,0,82,83,1,0,0,0,83,9,1,
+		0,0,0,84,82,1,0,0,0,85,86,5,9,0,0,86,87,3,26,13,0,87,88,5,34,0,0,88,89,
+		5,1,0,0,89,94,3,24,12,0,90,91,5,10,0,0,91,92,5,34,0,0,92,93,5,1,0,0,93,
+		95,3,24,12,0,94,90,1,0,0,0,94,95,1,0,0,0,95,11,1,0,0,0,96,97,5,11,0,0,
+		97,98,3,26,13,0,98,99,5,34,0,0,99,100,5,1,0,0,100,101,3,24,12,0,101,13,
+		1,0,0,0,102,103,5,13,0,0,103,104,3,26,13,0,104,105,5,1,0,0,105,15,1,0,
+		0,0,106,107,5,12,0,0,107,108,3,26,13,0,108,109,5,15,0,0,109,110,3,36,18,
+		0,110,111,5,34,0,0,111,112,5,1,0,0,112,113,3,24,12,0,113,17,1,0,0,0,114,
+		115,5,14,0,0,115,124,5,28,0,0,116,121,3,26,13,0,117,118,5,27,0,0,118,120,
+		3,26,13,0,119,117,1,0,0,0,120,123,1,0,0,0,121,119,1,0,0,0,121,122,1,0,
+		0,0,122,125,1,0,0,0,123,121,1,0,0,0,124,116,1,0,0,0,124,125,1,0,0,0,125,
+		126,1,0,0,0,126,128,5,29,0,0,127,129,5,1,0,0,128,127,1,0,0,0,128,129,1,
+		0,0,0,129,19,1,0,0,0,130,131,5,39,0,0,131,132,5,26,0,0,132,133,3,26,13,
+		0,133,134,5,1,0,0,134,21,1,0,0,0,135,136,5,39,0,0,136,138,5,28,0,0,137,
+		139,3,36,18,0,138,137,1,0,0,0,138,139,1,0,0,0,139,140,1,0,0,0,140,142,
+		5,29,0,0,141,143,5,1,0,0,142,141,1,0,0,0,142,143,1,0,0,0,143,23,1,0,0,
+		0,144,146,5,3,0,0,145,147,3,4,2,0,146,145,1,0,0,0,147,148,1,0,0,0,148,
+		146,1,0,0,0,148,149,1,0,0,0,149,150,1,0,0,0,150,151,5,4,0,0,151,25,1,0,
+		0,0,152,154,3,30,15,0,153,155,3,28,14,0,154,153,1,0,0,0,154,155,1,0,0,
+		0,155,27,1,0,0,0,156,157,7,0,0,0,157,158,3,30,15,0,158,29,1,0,0,0,159,
+		164,3,32,16,0,160,161,7,1,0,0,161,163,3,32,16,0,162,160,1,0,0,0,163,166,
+		1,0,0,0,164,162,1,0,0,0,164,165,1,0,0,0,165,31,1,0,0,0,166,164,1,0,0,0,
+		167,172,3,34,17,0,168,169,7,2,0,0,169,171,3,34,17,0,170,168,1,0,0,0,171,
+		174,1,0,0,0,172,170,1,0,0,0,172,173,1,0,0,0,173,33,1,0,0,0,174,172,1,0,
+		0,0,175,180,3,38,19,0,176,177,5,30,0,0,177,178,3,26,13,0,178,179,5,31,
+		0,0,179,181,1,0,0,0,180,176,1,0,0,0,180,181,1,0,0,0,181,35,1,0,0,0,182,
+		187,3,26,13,0,183,184,5,27,0,0,184,186,3,26,13,0,185,183,1,0,0,0,186,189,
+		1,0,0,0,187,185,1,0,0,0,187,188,1,0,0,0,188,37,1,0,0,0,189,187,1,0,0,0,
+		190,191,5,28,0,0,191,192,3,26,13,0,192,193,5,29,0,0,193,213,1,0,0,0,194,
+		195,5,16,0,0,195,196,5,28,0,0,196,197,3,26,13,0,197,198,5,29,0,0,198,213,
+		1,0,0,0,199,213,3,40,20,0,200,202,7,1,0,0,201,200,1,0,0,0,201,202,1,0,
+		0,0,202,203,1,0,0,0,203,213,7,3,0,0,204,210,5,39,0,0,205,207,5,28,0,0,
+		206,208,3,36,18,0,207,206,1,0,0,0,207,208,1,0,0,0,208,209,1,0,0,0,209,
+		211,5,29,0,0,210,205,1,0,0,0,210,211,1,0,0,0,211,213,1,0,0,0,212,190,1,
+		0,0,0,212,194,1,0,0,0,212,199,1,0,0,0,212,201,1,0,0,0,212,204,1,0,0,0,
+		213,39,1,0,0,0,214,216,5,30,0,0,215,217,3,36,18,0,216,215,1,0,0,0,216,
+		217,1,0,0,0,217,218,1,0,0,0,218,219,5,31,0,0,219,41,1,0,0,0,22,45,54,64,
+		70,82,94,121,124,128,138,142,148,154,164,172,180,187,201,207,210,212,216
 	};
 
 	public static readonly ATN _ATN =

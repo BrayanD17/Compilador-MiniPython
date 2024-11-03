@@ -6,7 +6,7 @@
         <PerGrammarGenerationSettings>
           <option name="fileName" value="$PROJECT_DIR$/Compilador-MiniPython-TerceraEtapa/Grammar/MiniPythonParser.g4" />
           <option name="autoGen" value="true" />
-          <option name="outputDir" value="C:\Users\dinar\RiderProjects\Compilador-MiniPython-TerceraEtapa\Compilador-MiniPython-TerceraEtapa\Generated" />
+          <option name="outputDir" value="C:\Users\dinar\Documents\GitHub\Compilador-MiniPython\Compilador-MiniPython-TerceraEtapa\Compilador-MiniPython-TerceraEtapa\Generated" />
           <option name="libDir" value="" />
           <option name="encoding" value="" />
           <option name="pkg" value="" />
@@ -16,7 +16,7 @@
         <PerGrammarGenerationSettings>
           <option name="fileName" value="$PROJECT_DIR$/Compilador-MiniPython-TerceraEtapa/Grammar/MiniPythonLexer.g4" />
           <option name="autoGen" value="true" />
-          <option name="outputDir" value="C:\Users\dinar\RiderProjects\Compilador-MiniPython-TerceraEtapa\Compilador-MiniPython-TerceraEtapa\Generated" />
+          <option name="outputDir" value="C:\Users\dinar\Documents\GitHub\Compilador-MiniPython\Compilador-MiniPython-TerceraEtapa\Compilador-MiniPython-TerceraEtapa\Generated" />
           <option name="libDir" value="" />
           <option name="encoding" value="" />
           <option name="pkg" value="" />

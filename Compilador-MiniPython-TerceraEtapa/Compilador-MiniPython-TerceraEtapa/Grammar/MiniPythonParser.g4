@@ -1,140 +1,54 @@
 ﻿parser grammar MiniPythonParser;
 
 options {
-    tokenVocab = MiniPythonLexer; // Usa los tokens definidos en MiniPythonLexer
+    tokenVocab = MiniPythonLexer;
 }
 
-// Entry point of the program
-program
-    : (mainStatement | NEWLINE)* EOF
-    ;
+program: mainStatement* EOF;
 
-// Main statements
-mainStatement
-    : defStatement
-    | assignStatement
-    | ifStatement
-    | whileStatement
-    | forStatement
-    | printStatement
-    | returnStatement
-    | functionCallStatement
-    ;
+mainStatement: defStatement | assignStatement | functionCallStatement | printStatement;
 
-// Function definition
-defStatement
-    : DEF ID PIZQ argList? PDER DOSPUN NEWLINE INDENT sequence NEWLINE
-    ;
-
-// Argument list
-argList
-    : ID (COMMA ID)*
-    ;
-
-// If statement
-ifStatement
-    : IF expression DOSPUN NEWLINE INDENT sequence (ELSE DOSPUN NEWLINE INDENT sequence)? 
-    ;
-
-// While statement
-whileStatement
-    : WHILE expression DOSPUN NEWLINE INDENT sequence 
-    ;
-
-// For statement
-forStatement
-    : FOR expression IN expressionList DOSPUN NEWLINE INDENT sequence 
-    ;
-
-// Return statement
-returnStatement
-    : RETURN expression NEWLINE
-    ;
-
-// Print statement
-printStatement
-    : PRINT expression NEWLINE
-    ;
-
-// Assignment
-assignStatement
-    : ID ASIGN expression NEWLINE
-    ;
-
-// Function call
-functionCallStatement
-    : ID PIZQ expressionList? PDER NEWLINE
-    ;
-
-// Sequence of statements
-sequence
-    : (statement NEWLINE?)*
-    ;
-
-// Statement
 statement
     : defStatement
     | ifStatement
-    | whileStatement
-    | forStatement
     | returnStatement
     | printStatement
+    | whileStatement
     | assignStatement
-    | functionCallStatement
-    ;
+    | forStatement
+    | functionCallStatement;
 
-// Expression
-expression
-    : additionExpression (comparison)?
-    ;
+defStatement: DEF IDENTIFIER LPAREN argList? RPAREN DOSPUNTOS NEWLINE sequence;
+argList: IDENTIFIER (COMMA IDENTIFIER)*;
 
-// Comparison
-comparison
-    : (GT | LT | GE | LE | EQEQ | NOTEQ) additionExpression
-    ;
+ifStatement: IF expression DOSPUNTOS NEWLINE sequence (ELSE DOSPUNTOS NEWLINE sequence)?;
+whileStatement: WHILE expression DOSPUNTOS NEWLINE sequence;
+returnStatement: RETURN expression NEWLINE;
+forStatement: FOR expression IN expressionList DOSPUNTOS NEWLINE sequence;
 
-// Addition expression
-additionExpression
-    : multiplicationExpression (additionFactor)*
-    ;
+printStatement: PRINT LPAREN (expression (COMMA expression)*)? RPAREN NEWLINE?;
 
-// Addition factor
-additionFactor
-    : (SUM | REST) multiplicationExpression
-    ;
+assignStatement: IDENTIFIER ASSIGN expression NEWLINE;
 
-// Multiplication expression
-multiplicationExpression
-    : elementExpression (multiplicationFactor)*
-    ;
+functionCallStatement: IDENTIFIER LPAREN expressionList? RPAREN NEWLINE?;
 
-// Multiplication factor
-multiplicationFactor
-    : (MUL | DIV | MOD) elementExpression
-    ;
+sequence: INDENT statement+ DEDENT;
 
-// Element expression
-elementExpression
-    : primitiveExpression (elementAccess)?
-    ;
+expression: additionExpression comparison?;
+comparison: (LT | GT | LE | GE | EQ) additionExpression;
+additionExpression: multiplicationExpression ((PLUS | MINUS) multiplicationExpression)*;
+multiplicationExpression: elementExpression ((MULT | DIV) elementExpression)*;
 
-// Element access
-elementAccess
-    : LBRACKET expression RBRACKET
-    ;
+elementExpression: primitiveExpression (LBRACKET expression RBRACKET)?;
 
-// List of expressions
-expressionList
-    : expression (COMMA expression)*
-    ;
+expressionList: expression (COMMA expression)*;
 
-// Primitive expression
 primitiveExpression
-    : (REST? NUM)
-    | (REST? FLOAT)
-    | STRING
-    | ID (PIZQ expressionList? PDER)?
-    | PIZQ expression PDER
-    | LBRACKET expressionList? RBRACKET
-    | LEN PIZQ expression PDER
+    : LPAREN expression RPAREN                                      #primitiveExpressionparenthesisExprAST
+    | LEN LPAREN expression RPAREN                                  #primitiveExpressionlenAST
+    | listExpression                                                #primitiveExpressionlistAST
+    | (PLUS | MINUS)? (INTEGER | FLOAT | CHARCONST | STRING)        #primitiveExpressionliteralAST
+    | IDENTIFIER (LPAREN expressionList? RPAREN)?                   #primitiveExpressionidentifierListAST
     ;
+
+listExpression: LBRACKET expressionList? RBRACKET;

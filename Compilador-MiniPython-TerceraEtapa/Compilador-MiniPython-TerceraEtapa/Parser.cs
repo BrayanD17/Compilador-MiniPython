@@ -2,7 +2,6 @@
 using Antlr4.Runtime.Tree;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 
 namespace MiniPython
 {
@@ -10,6 +9,7 @@ namespace MiniPython
     {
         private readonly MiniPythonParser _parser;
         private readonly CustomErrorListener _errorListener;
+        private readonly SemanticAnalyzer _semanticAnalyzer;
 
         public MiParser(MiniPythonLexer lexer)
         {
@@ -18,16 +18,33 @@ namespace MiniPython
             _errorListener = new CustomErrorListener();
             _parser.RemoveErrorListeners();
             _parser.AddErrorListener(_errorListener);
+
+            _semanticAnalyzer = new SemanticAnalyzer();
         }
 
-        public void Parse()
+        public void ParseAndAnalyze()
         {
-            IParseTree tree = _parser.program();
+            var tree = _parser.program();
+
+            if (_errorListener.HasErrors)
+                return;
+
+            _semanticAnalyzer.Analyze(tree);
+
+            foreach (var error in _semanticAnalyzer.GetSemanticErrors())
+            {
+                _errorListener.Errors.Add(error);
+            }
         }
-        
+
         public List<ErrorInfo> GetErrors()
         {
             return _errorListener.Errors;
+        }
+
+        public List<string> GetSymbolTableContent()
+        {
+            return _semanticAnalyzer.GetSymbolTableContent();
         }
     }
 
@@ -46,30 +63,12 @@ namespace MiniPython
             string msg,
             RecognitionException e)
         {
-            string cleanedMsg = msg.Replace("\\r\\n", "").Replace("\\n", "").Replace("\\r", "");
-
-            if (cleanedMsg.Contains("missing") || cleanedMsg.Contains("no viable alternative"))
+            Errors.Add(new ErrorInfo
             {
-                if (!Errors.Any(error => error.Line == line && error.Message == cleanedMsg))
-                {
-                    if (cleanedMsg.Contains("missing") && (cleanedMsg.Contains(")") || cleanedMsg.Contains(":")))
-                    {
-                        Errors.Add(new ErrorInfo
-                        {
-                            Line = line,
-                            Column = charPositionInLine,
-                            Message = $"Detalles: {cleanedMsg}"
-                        });
-                    }
-                }
-            }
+                Line = line,
+                Column = charPositionInLine,
+                Message = $"Error de sintaxis: {msg}"
+            });
         }
-    }
-
-    public class ErrorInfo
-    {
-        public int Line { get; set; }
-        public int Column { get; set; }
-        public string Message { get; set; }
     }
 }
