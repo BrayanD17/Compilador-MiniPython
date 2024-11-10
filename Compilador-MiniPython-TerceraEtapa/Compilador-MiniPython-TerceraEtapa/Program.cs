@@ -35,21 +35,27 @@ app.MapPost("/parse", async (HttpRequest request) =>
 {
     try
     {
+        // Leer el contenido de la solicitud (código fuente en JSON)
         using var reader = new StreamReader(request.Body);
         var body = await reader.ReadToEndAsync();
         var json = JsonSerializer.Deserialize<Dictionary<string, string>>(body);
         var code = json?["code"] ?? string.Empty;
 
+        // Crear el lexer y parser usando el código fuente proporcionado
         var lexer = new MiniPythonLexer(CharStreams.fromString(code));
         var parserInstance = new MiParser(lexer);
 
-        parserInstance.ParseAndAnalyze(); 
+        // Iniciar el análisis semántico y sintáctico
+        parserInstance.ParseAndAnalyze();
 
+        // Obtener errores semánticos y tabla de símbolos
         var errors = parserInstance.GetErrors();
         var symbolTableContent = parserInstance.GetSymbolTableContent();
 
+        // Comprobar si hubo errores durante el análisis sintáctico o semántico
         if (errors.Count > 0)
         {
+            // Si hay errores, devolver un estado de "BadRequest" con detalles
             return Results.BadRequest(new
             {
                 error = "Parsing failed",
@@ -58,6 +64,7 @@ app.MapPost("/parse", async (HttpRequest request) =>
             });
         }
 
+        // Si no hubo errores, devolver un mensaje de éxito y la tabla de símbolos generada
         return Results.Ok(new 
         { 
             message = "Parsing completed successfully.",
@@ -66,6 +73,7 @@ app.MapPost("/parse", async (HttpRequest request) =>
     }
     catch (Exception ex)
     {
+        // Manejo de excepciones en caso de que ocurra un error durante el análisis o procesamiento
         var errorResponse = new
         {
             error = ex.Message,
