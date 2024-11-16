@@ -41,16 +41,6 @@ public interface IMiniPythonParserListener : IParseTreeListener {
 	/// <param name="context">The parse tree.</param>
 	void ExitProgram([NotNull] MiniPythonParser.ProgramContext context);
 	/// <summary>
-	/// Enter a parse tree produced by <see cref="MiniPythonParser.mainStatement"/>.
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	void EnterMainStatement([NotNull] MiniPythonParser.MainStatementContext context);
-	/// <summary>
-	/// Exit a parse tree produced by <see cref="MiniPythonParser.mainStatement"/>.
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	void ExitMainStatement([NotNull] MiniPythonParser.MainStatementContext context);
-	/// <summary>
 	/// Enter a parse tree produced by <see cref="MiniPythonParser.statement"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
@@ -161,15 +151,15 @@ public interface IMiniPythonParserListener : IParseTreeListener {
 	/// <param name="context">The parse tree.</param>
 	void ExitSequence([NotNull] MiniPythonParser.SequenceContext context);
 	/// <summary>
-	/// Enter a parse tree produced by <see cref="MiniPythonParser.expression"/>.
+	/// Enter a parse tree produced by <see cref="MiniPythonParser.logicalExpression"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void EnterExpression([NotNull] MiniPythonParser.ExpressionContext context);
+	void EnterLogicalExpression([NotNull] MiniPythonParser.LogicalExpressionContext context);
 	/// <summary>
-	/// Exit a parse tree produced by <see cref="MiniPythonParser.expression"/>.
+	/// Exit a parse tree produced by <see cref="MiniPythonParser.logicalExpression"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void ExitExpression([NotNull] MiniPythonParser.ExpressionContext context);
+	void ExitLogicalExpression([NotNull] MiniPythonParser.LogicalExpressionContext context);
 	/// <summary>
 	/// Enter a parse tree produced by <see cref="MiniPythonParser.comparison"/>.
 	/// </summary>
@@ -180,6 +170,16 @@ public interface IMiniPythonParserListener : IParseTreeListener {
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	void ExitComparison([NotNull] MiniPythonParser.ComparisonContext context);
+	/// <summary>
+	/// Enter a parse tree produced by <see cref="MiniPythonParser.expression"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void EnterExpression([NotNull] MiniPythonParser.ExpressionContext context);
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="MiniPythonParser.expression"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void ExitExpression([NotNull] MiniPythonParser.ExpressionContext context);
 	/// <summary>
 	/// Enter a parse tree produced by <see cref="MiniPythonParser.additionExpression"/>.
 	/// </summary>

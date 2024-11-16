@@ -1,5 +1,3 @@
-﻿def greet():
-    name = "World"
-    print("Hello, " + name)
-
-greet()
+﻿def Main():
+    my_list = [5, 15, 25]  # Crea una lista con tres elementos
+    print(my_list)  # Imprime la lista completa [5, 15, 25]

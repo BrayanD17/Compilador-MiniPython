@@ -4,9 +4,7 @@ options {
     tokenVocab = MiniPythonLexer;
 }
 
-program: mainStatement* EOF;
-
-mainStatement: defStatement | assignStatement | functionCallStatement | printStatement;
+program: statement* EOF;
 
 statement
     : defStatement
@@ -21,34 +19,36 @@ statement
 defStatement: DEF IDENTIFIER LPAREN argList? RPAREN DOSPUNTOS NEWLINE sequence;
 argList: IDENTIFIER (COMMA IDENTIFIER)*;
 
-ifStatement: IF expression DOSPUNTOS NEWLINE sequence (ELSE DOSPUNTOS NEWLINE sequence)?;
-whileStatement: WHILE expression DOSPUNTOS NEWLINE sequence;
-returnStatement: RETURN expression NEWLINE;
+ifStatement: IF logicalExpression DOSPUNTOS NEWLINE sequence (ELSE DOSPUNTOS NEWLINE sequence)?;
+whileStatement: WHILE logicalExpression DOSPUNTOS NEWLINE sequence;
+returnStatement: RETURN expression? NEWLINE;
 forStatement: FOR expression IN expressionList DOSPUNTOS NEWLINE sequence;
 
 printStatement: PRINT LPAREN (expression (COMMA expression)*)? RPAREN NEWLINE?;
 
-assignStatement: IDENTIFIER ASSIGN expression NEWLINE;
+assignStatement: (IDENTIFIER | IDENTIFIER LBRACKET expression RBRACKET) ASSIGN expression NEWLINE;
 
-functionCallStatement: IDENTIFIER LPAREN expressionList? RPAREN NEWLINE?;
+functionCallStatement: IDENTIFIER LPAREN expressionList RPAREN NEWLINE?;
 
 sequence: INDENT statement+ DEDENT;
 
-expression: additionExpression comparison?;
-comparison: (LT | GT | LE | GE | EQ) additionExpression;
+logicalExpression: comparison ((AND | OR) comparison)*;
+comparison: additionExpression (LT | GT | LE | GE | EQ) additionExpression;
+expression: additionExpression;
+
 additionExpression: multiplicationExpression ((PLUS | MINUS) multiplicationExpression)*;
-multiplicationExpression: elementExpression ((MULT | DIV) elementExpression)*;
+multiplicationExpression: elementExpression ((MULT | DIV | MOD) elementExpression)*;
 
 elementExpression: primitiveExpression (LBRACKET expression RBRACKET)?;
 
-expressionList: expression (COMMA expression)*;
+expressionList: (expression (COMMA expression)*)?;
 
 primitiveExpression
     : LPAREN expression RPAREN                                      #primitiveExpressionparenthesisExprAST
     | LEN LPAREN expression RPAREN                                  #primitiveExpressionlenAST
     | listExpression                                                #primitiveExpressionlistAST
     | (PLUS | MINUS)? (INTEGER | FLOAT | CHARCONST | STRING)        #primitiveExpressionliteralAST
-    | IDENTIFIER (LPAREN expressionList? RPAREN)?                   #primitiveExpressionidentifierListAST
+    | IDENTIFIER (LPAREN expressionList RPAREN)?                    #primitiveExpressionidentifierListAST
     ;
 
-listExpression: LBRACKET expressionList? RBRACKET;
+listExpression: LBRACKET expressionList RBRACKET;

@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "doFjpGJ8Szk=",
+  "dgSpecHash": "RD72+ri1WIQ=",
   "success": true,
   "projectFilePath": "C:\\Users\\dinar\\Documents\\GitHub\\Compilador-MiniPython\\Compilador-MiniPython-TerceraEtapa\\Compilador-MiniPython-TerceraEtapa\\Compilador-MiniPython-TerceraEtapa.csproj",
   "expectedPackageFiles": [
@@ -13,7 +13,11 @@
     "C:\\Users\\dinar\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\6.4.0\\swashbuckle.aspnetcore.swaggergen.6.4.0.nupkg.sha512",
     "C:\\Users\\dinar\\.nuget\\packages\\swashbuckle.aspnetcore.swaggerui\\6.4.0\\swashbuckle.aspnetcore.swaggerui.6.4.0.nupkg.sha512",
     "C:\\Users\\dinar\\.nuget\\packages\\system.text.encodings.web\\8.0.0\\system.text.encodings.web.8.0.0.nupkg.sha512",
-    "C:\\Users\\dinar\\.nuget\\packages\\system.text.json\\8.0.4\\system.text.json.8.0.4.nupkg.sha512"
+    "C:\\Users\\dinar\\.nuget\\packages\\system.text.json\\8.0.4\\system.text.json.8.0.4.nupkg.sha512",
+    "C:\\Users\\dinar\\.nuget\\packages\\microsoft.netcore.app.ref\\8.0.10\\microsoft.netcore.app.ref.8.0.10.nupkg.sha512",
+    "C:\\Users\\dinar\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\8.0.10\\microsoft.windowsdesktop.app.ref.8.0.10.nupkg.sha512",
+    "C:\\Users\\dinar\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\8.0.10\\microsoft.aspnetcore.app.ref.8.0.10.nupkg.sha512",
+    "C:\\Users\\dinar\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\8.0.10\\microsoft.netcore.app.host.win-x64.8.0.10.nupkg.sha512"
   ],
   "logs": [
     {

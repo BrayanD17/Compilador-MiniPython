@@ -38,6 +38,7 @@ C:\Users\dinar\RiderProjects\Compilador-MiniPython-TerceraEtapa\Compilador-MiniP
 C:\Users\dinar\Documents\GitHub\Compilador-MiniPython\Compilador-MiniPython-TerceraEtapa\Compilador-MiniPython-TerceraEtapa\bin\Debug\net8.0\appsettings.Development.json
 C:\Users\dinar\Documents\GitHub\Compilador-MiniPython\Compilador-MiniPython-TerceraEtapa\Compilador-MiniPython-TerceraEtapa\bin\Debug\net8.0\appsettings.json
 C:\Users\dinar\Documents\GitHub\Compilador-MiniPython\Compilador-MiniPython-TerceraEtapa\Compilador-MiniPython-TerceraEtapa\bin\Debug\net8.0\Compilador-MiniPython-TerceraEtapa.staticwebassets.endpoints.json
+C:\Users\dinar\Documents\GitHub\Compilador-MiniPython\Compilador-MiniPython-TerceraEtapa\Compilador-MiniPython-TerceraEtapa\bin\Debug\net8.0\MiniPY.exe
 C:\Users\dinar\Documents\GitHub\Compilador-MiniPython\Compilador-MiniPython-TerceraEtapa\Compilador-MiniPython-TerceraEtapa\bin\Debug\net8.0\Compilador-MiniPython-TerceraEtapa.exe
 C:\Users\dinar\Documents\GitHub\Compilador-MiniPython\Compilador-MiniPython-TerceraEtapa\Compilador-MiniPython-TerceraEtapa\bin\Debug\net8.0\Compilador-MiniPython-TerceraEtapa.deps.json
 C:\Users\dinar\Documents\GitHub\Compilador-MiniPython\Compilador-MiniPython-TerceraEtapa\Compilador-MiniPython-TerceraEtapa\bin\Debug\net8.0\Compilador-MiniPython-TerceraEtapa.runtimeconfig.json

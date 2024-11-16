@@ -105,6 +105,7 @@ PLUS: '+';
 MINUS: '-';
 MULT: '*';
 DIV: '/';
+MOD: '%';
 LT: '<';
 GT: '>';
 LE: '<=';
@@ -119,6 +120,8 @@ RBRACKET: ']';
 LBRACE: '{';
 RBRACE: '}';
 DOSPUNTOS: ':';
+AND: 'and';
+OR: 'or';
 
 // Tipos de datos
 INTEGER: [0-9]+;

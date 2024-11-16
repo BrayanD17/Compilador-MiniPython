@@ -1,0 +1,10 @@
+﻿def m(x, y):
+    num = 0
+    if x > y:
+        num = x
+    else:
+        num = y
+    return num
+def i():
+    var = m(12, 24)
+    print(num)

@@ -101,16 +101,31 @@ namespace MiniPython
             var variableName = assignContext.IDENTIFIER().GetText();
             Console.WriteLine($"Asignando a la variable: {variableName}");
 
-            // Verificar las expresiones en el lado derecho de la asignación
-            bool isAssignmentValid = VisitExpression(assignContext.expression(), assignContext.Start.Line);
+            // Verificar si la expresión de asignación existe
+            if (assignContext.expression() == null)
+            {
+                Console.WriteLine($"Error: La asignación a '{variableName}' no tiene una expresión válida.");
+                _semanticErrors.Add(new ErrorInfo
+                {
+                    Line = assignContext.Start.Line,
+                    Column = 0,
+                    Message = $"Error: La asignación a '{variableName}' no tiene una expresión válida."
+                });
+                return;
+            }
 
+            // Usar Visit en lugar de castear directamente
+            //bool isAssignmentValid = Visit(assignContext.expression()) is bool result && result;
+            /*
             if (!isAssignmentValid)
             {
                 Console.WriteLine($"Error: Asignación no válida a '{variableName}' debido a variables o métodos no definidos.");
                 return;
             }
+            */
 
-            if (isInGlobalScope) // Si estamos en el alcance global
+            // Registrar la variable en el alcance correspondiente
+            if (isInGlobalScope)
             {
                 if (_symbolTable.BuscarEnNivelActual(variableName) == null)
                 {
@@ -118,7 +133,7 @@ namespace MiniPython
                     _symbolTable.InsertarVariable(variableName, "global variable", false);
                 }
             }
-            else // Si estamos en el alcance de una función
+            else
             {
                 if (_symbolTable.Buscar(variableName) == null)
                 {
@@ -165,6 +180,18 @@ namespace MiniPython
 
         private bool VisitExpression(MiniPythonParser.ExpressionContext exprContext, int line)
         {
+            if (exprContext == null)
+            {
+                Console.WriteLine($"Error: Expresión no válida en la línea {line}.");
+                _semanticErrors.Add(new ErrorInfo
+                {
+                    Line = line,
+                    Column = 0,
+                    Message = $"Error: Expresión no válida."
+                });
+                return false;
+            }
+
             bool isExpressionValid = true;
             Console.WriteLine($"Analizando expresión en línea {line}...");
 

@@ -1,0 +1,6 @@
+﻿num_3 = 3
+def function():
+    num_1 = 19
+    num_2 = 90
+    num = num_1 + num_2 * num_3
+    print(num)

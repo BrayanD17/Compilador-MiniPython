@@ -48,18 +48,6 @@ public partial class MiniPythonParserBaseListener : IMiniPythonParserListener {
 	/// <param name="context">The parse tree.</param>
 	public virtual void ExitProgram([NotNull] MiniPythonParser.ProgramContext context) { }
 	/// <summary>
-	/// Enter a parse tree produced by <see cref="MiniPythonParser.mainStatement"/>.
-	/// <para>The default implementation does nothing.</para>
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	public virtual void EnterMainStatement([NotNull] MiniPythonParser.MainStatementContext context) { }
-	/// <summary>
-	/// Exit a parse tree produced by <see cref="MiniPythonParser.mainStatement"/>.
-	/// <para>The default implementation does nothing.</para>
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	public virtual void ExitMainStatement([NotNull] MiniPythonParser.MainStatementContext context) { }
-	/// <summary>
 	/// Enter a parse tree produced by <see cref="MiniPythonParser.statement"/>.
 	/// <para>The default implementation does nothing.</para>
 	/// </summary>
@@ -192,17 +180,17 @@ public partial class MiniPythonParserBaseListener : IMiniPythonParserListener {
 	/// <param name="context">The parse tree.</param>
 	public virtual void ExitSequence([NotNull] MiniPythonParser.SequenceContext context) { }
 	/// <summary>
-	/// Enter a parse tree produced by <see cref="MiniPythonParser.expression"/>.
+	/// Enter a parse tree produced by <see cref="MiniPythonParser.logicalExpression"/>.
 	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	public virtual void EnterExpression([NotNull] MiniPythonParser.ExpressionContext context) { }
+	public virtual void EnterLogicalExpression([NotNull] MiniPythonParser.LogicalExpressionContext context) { }
 	/// <summary>
-	/// Exit a parse tree produced by <see cref="MiniPythonParser.expression"/>.
+	/// Exit a parse tree produced by <see cref="MiniPythonParser.logicalExpression"/>.
 	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	public virtual void ExitExpression([NotNull] MiniPythonParser.ExpressionContext context) { }
+	public virtual void ExitLogicalExpression([NotNull] MiniPythonParser.LogicalExpressionContext context) { }
 	/// <summary>
 	/// Enter a parse tree produced by <see cref="MiniPythonParser.comparison"/>.
 	/// <para>The default implementation does nothing.</para>
@@ -215,6 +203,18 @@ public partial class MiniPythonParserBaseListener : IMiniPythonParserListener {
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	public virtual void ExitComparison([NotNull] MiniPythonParser.ComparisonContext context) { }
+	/// <summary>
+	/// Enter a parse tree produced by <see cref="MiniPythonParser.expression"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void EnterExpression([NotNull] MiniPythonParser.ExpressionContext context) { }
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="MiniPythonParser.expression"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void ExitExpression([NotNull] MiniPythonParser.ExpressionContext context) { }
 	/// <summary>
 	/// Enter a parse tree produced by <see cref="MiniPythonParser.additionExpression"/>.
 	/// <para>The default implementation does nothing.</para>

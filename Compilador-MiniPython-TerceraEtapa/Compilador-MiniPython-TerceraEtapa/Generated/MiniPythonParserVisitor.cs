@@ -38,12 +38,6 @@ public interface IMiniPythonParserVisitor<Result> : IParseTreeVisitor<Result> {
 	/// <return>The visitor result.</return>
 	Result VisitProgram([NotNull] MiniPythonParser.ProgramContext context);
 	/// <summary>
-	/// Visit a parse tree produced by <see cref="MiniPythonParser.mainStatement"/>.
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	/// <return>The visitor result.</return>
-	Result VisitMainStatement([NotNull] MiniPythonParser.MainStatementContext context);
-	/// <summary>
 	/// Visit a parse tree produced by <see cref="MiniPythonParser.statement"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
@@ -110,17 +104,23 @@ public interface IMiniPythonParserVisitor<Result> : IParseTreeVisitor<Result> {
 	/// <return>The visitor result.</return>
 	Result VisitSequence([NotNull] MiniPythonParser.SequenceContext context);
 	/// <summary>
-	/// Visit a parse tree produced by <see cref="MiniPythonParser.expression"/>.
+	/// Visit a parse tree produced by <see cref="MiniPythonParser.logicalExpression"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
-	Result VisitExpression([NotNull] MiniPythonParser.ExpressionContext context);
+	Result VisitLogicalExpression([NotNull] MiniPythonParser.LogicalExpressionContext context);
 	/// <summary>
 	/// Visit a parse tree produced by <see cref="MiniPythonParser.comparison"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
 	Result VisitComparison([NotNull] MiniPythonParser.ComparisonContext context);
+	/// <summary>
+	/// Visit a parse tree produced by <see cref="MiniPythonParser.expression"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	Result VisitExpression([NotNull] MiniPythonParser.ExpressionContext context);
 	/// <summary>
 	/// Visit a parse tree produced by <see cref="MiniPythonParser.additionExpression"/>.
 	/// </summary>
