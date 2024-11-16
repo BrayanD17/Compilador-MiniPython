@@ -1,7 +1,0 @@
-﻿z = 12                    # Define `z` en el ámbito global
-
-def Main():
-    x = 10               # Declara `x` en el nivel 1
-    if x > 3:
-        y = x + 1        # Declara `y` en el mismo nivel de `x` (nivel 1)
-    return x

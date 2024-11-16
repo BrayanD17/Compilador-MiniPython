@@ -40,99 +40,137 @@ namespace CodeGen
         {
             bytecode = new List<Instruction>();
         }
+        
+        private bool IsGlobalVariable(string identifier)
+        {
+            return globalVariables.Contains(identifier);
+        }
+
+        private void EnsureGlobalVariable(string identifier)
+        {
+            if (!globalVariables.Contains(identifier))
+            {
+                globalVariables.Add(identifier);
+                bytecode.Add(new Instruction("PUSH_GLOBAL", identifier));
+            }
+        }
+
 
         public override object VisitProgram(MiniPythonParser.ProgramContext context)
         {
-            currentLevel = 0; 
+            currentLevel = 0;
             string lastDefinedFunction = null;
 
             foreach (var stmt in context.statement())
             {
-                // Revisa si el contexto contiene una declaración de función
-                if (stmt is MiniPythonParser.StatementContext statementContext &&
-                    statementContext.defStatement() != null)
-                {
-                    lastDefinedFunction = statementContext.defStatement().IDENTIFIER().GetText();
-                }
-
-                Visit(stmt); // Visita cada declaración en el programa
+                Visit(stmt);
+                Console.WriteLine($"Variables globales: {string.Join(", ", globalVariables)}");
             }
 
-            // Si no hay ninguna llamada explícita, invoca automáticamente la última función definida
             if (lastDefinedFunction != null && !bytecode.Any(instr => instr.Instr == "CALL_FUNCTION"))
             {
                 bytecode.Add(new Instruction("LOAD_GLOBAL", lastDefinedFunction));
-                bytecode.Add(new Instruction("CALL_FUNCTION", "0")); // Suponemos sin argumentos para la invocación automática
+                bytecode.Add(new Instruction("CALL_FUNCTION", "0"));
             }
 
             bytecode.Add(new Instruction("END"));
             return null;
         }
-        
+
         public override object VisitStatement(MiniPythonParser.StatementContext context)
         {
             return base.VisitStatement(context);
         }
 
-        public override object VisitAssignStatement(MiniPythonParser.AssignStatementContext context)
+       public override object VisitAssignStatement(MiniPythonParser.AssignStatementContext context)
         {
-            var varName = context.IDENTIFIER().GetText();
-            var scopedVarName = currentLevel == 0 ? varName : $"{varName}_{currentLevel}";
 
             if (context.LBRACKET() != null && context.RBRACKET() != null)
             {
-                bytecode.Add(new Instruction(currentLevel == 0 ? "LOAD_GLOBAL" : "LOAD_FAST", scopedVarName));
-                Visit(context.expression(0)); // Índice
-                Visit(context.expression(1)); // Valor
+                // Asignación a un índice de lista
+
+                var listName = context.IDENTIFIER()?.GetText();
+
+                // Procesar el índice y el valor
+                VisitExpressionHandlingGlobals(context.expression(0)); // Índice
+                VisitExpressionHandlingGlobals(context.expression(1)); // Valor
+
+                // Determinar si la lista es global o local
+                if (globalVariables.Contains(listName))
+                {
+                    bytecode.Add(new Instruction("LOAD_GLOBAL", listName));
+                }
+                else
+                {
+                    bytecode.Add(new Instruction("LOAD_FAST", $"{listName}_{currentLevel}"));
+                }
+
+                // Generar la instrucción para asignar el valor al índice
                 bytecode.Add(new Instruction("STORE_SUBSCR"));
             }
             else
             {
-                if (currentLevel == 0 && !globalVariables.Contains(scopedVarName))
-                {
-                    bytecode.Add(new Instruction("PUSH_GLOBAL", scopedVarName));
-                    globalVariables.Add(scopedVarName);
-                }
-                else if (!localVariables.Contains(scopedVarName))
-                {
-                    bytecode.Add(new Instruction("PUSH_LOCAL", scopedVarName));
-                    localVariables.Add(scopedVarName);
-                }
+                // Manejo de asignaciones simples
+                var varName = context.IDENTIFIER()?.GetText();
+                var scopedVarName = currentLevel == 0 ? varName : $"{varName}_{currentLevel}";
 
-                VisitExpressionHandlingGlobals(context.expression(0));
-
-                bytecode.Add(new Instruction(currentLevel == 0 ? "STORE_GLOBAL" : "STORE_FAST", scopedVarName));
+                if (currentLevel == 0)
+                {
+                    EnsureGlobalVariable(varName);
+                    VisitExpressionHandlingGlobals(context.expression(0));
+                    bytecode.Add(new Instruction("STORE_GLOBAL", varName));
+                }
+                else
+                {
+                    if (!localVariables.Contains(scopedVarName))
+                    {
+                        bytecode.Add(new Instruction("PUSH_LOCAL", scopedVarName));
+                        localVariables.Add(scopedVarName);
+                    }
+                    VisitExpressionHandlingGlobals(context.expression(0));
+                    bytecode.Add(new Instruction("STORE_FAST", scopedVarName));
+                }
             }
 
             return null;
         }
 
+        private void PrintParseTree(IParseTree tree, string prefix = "")
+        {
+            if (tree == null)
+            {
+                Console.WriteLine($"{prefix}NULL");
+                return;
+            }
+
+            Console.WriteLine($"{prefix}{tree.GetText()}");
+            for (int i = 0; i < tree.ChildCount; i++)
+            {
+                PrintParseTree(tree.GetChild(i), prefix + "  ");
+            }
+        }
+
         private void VisitExpressionHandlingGlobals(ParserRuleContext context)
         {
-            if (context is MiniPythonParser.ElementExpressionContext elementExpr &&
-                elementExpr.primitiveExpression() is MiniPythonParser.PrimitiveExpressionidentifierListASTContext identifierExpr)
+            if (context is MiniPythonParser.PrimitiveExpressionidentifierListASTContext identifierExpr)
             {
                 var identifier = identifierExpr.IDENTIFIER().GetText();
 
-                // Verificar si la variable es global
                 if (globalVariables.Contains(identifier))
                 {
                     bytecode.Add(new Instruction("LOAD_GLOBAL", identifier));
                 }
                 else if (localVariables.Contains($"{identifier}_{currentLevel}"))
                 {
-                    // Si no es global, verificar si es local
                     bytecode.Add(new Instruction("LOAD_FAST", $"{identifier}_{currentLevel}"));
                 }
                 else
                 {
-                    // Generar advertencia si no está declarada
-                    Console.WriteLine($"Advertencia: la variable '{identifier}' no está declarada.");
+                    throw new InvalidOperationException($"Error: La variable '{identifier}' no está definida.");
                 }
             }
             else
             {
-                // Procesar expresiones complejas o no identificadas
                 Visit(context);
             }
         }
@@ -146,12 +184,11 @@ namespace CodeGen
             {
                 foreach (var expr in expressions)
                 {
-                    Visit(expr); // Cargar cada elemento en la pila
+                    VisitExpressionHandlingGlobals(expr); // Procesar cada elemento de la lista
                 }
             }
 
-            // Crear una lista con los elementos en la pila
-            bytecode.Add(new Instruction("BUILD_LIST", numElements.ToString()));
+            bytecode.Add(new Instruction("BUILD_LIST", numElements.ToString())); // Crear la lista
             return null;
         }
 
@@ -279,10 +316,10 @@ namespace CodeGen
 
         public override object VisitAdditionExpression(MiniPythonParser.AdditionExpressionContext context)
         {
-            // Procesa la primera expresión
+            // Procesar el primer término
             VisitExpressionHandlingGlobals(context.multiplicationExpression(0));
 
-            // Procesa las siguientes expresiones y las operaciones
+            // Procesar términos adicionales y operadores
             for (var i = 1; i < context.multiplicationExpression().Length; i++)
             {
                 VisitExpressionHandlingGlobals(context.multiplicationExpression(i));
@@ -325,57 +362,18 @@ namespace CodeGen
         public override object VisitPrimitiveExpressionidentifierListAST(MiniPythonParser.PrimitiveExpressionidentifierListASTContext context)
         {
             var varName = context.IDENTIFIER().GetText();
-    
-            if (varName == "print")
-            {
-                Console.WriteLine("Generando bytecode para `print`");
 
-                if (context.expressionList() != null)
-                {
-                    var numArgs = 0;
-                    foreach (var expr in context.expressionList().expression())
-                    {
-                        Visit(expr);
-                        numArgs++;
-                    }
-                    bytecode.Add(new Instruction("LOAD_GLOBAL", "print"));
-                    bytecode.Add(new Instruction("CALL_FUNCTION", numArgs.ToString()));
-                }
+            if (globalVariables.Contains(varName))
+            {
+                bytecode.Add(new Instruction("LOAD_GLOBAL", varName));
+            }
+            else if (localVariables.Contains($"{varName}_{currentLevel}"))
+            {
+                bytecode.Add(new Instruction("LOAD_FAST", $"{varName}_{currentLevel}"));
             }
             else
             {
-                // Procede normalmente con el sufijo si no es `print`
-                var scopedVarName = $"{varName}_{currentLevel}";
-
-                if (context.expressionList() != null)
-                {
-                    var numArgs = 0;
-                    foreach (var expr in context.expressionList().expression())
-                    {
-                        Visit(expr);
-                        numArgs++;
-                    }
-
-                    // Usa LOAD_GLOBAL para otras funciones y llamadas externas
-                    bytecode.Add(new Instruction("LOAD_GLOBAL", scopedVarName));
-                    bytecode.Add(new Instruction("CALL_FUNCTION", numArgs.ToString()));
-                }
-                else
-                {
-                    // Verificar si la variable es global o local
-                    if (globalVariables.Contains(scopedVarName))
-                    {
-                        bytecode.Add(new Instruction("LOAD_GLOBAL", scopedVarName));
-                    }
-                    else if (localVariables.Contains(scopedVarName))
-                    {
-                        bytecode.Add(new Instruction("LOAD_FAST", scopedVarName));
-                    }
-                    else
-                    {
-                        Console.WriteLine($"Advertencia: la variable '{scopedVarName}' no está declarada.");
-                    }
-                }
+                throw new InvalidOperationException($"Error: La variable '{varName}' no está definida.");
             }
 
             return null;
@@ -383,7 +381,8 @@ namespace CodeGen
 
         public override object VisitPrimitiveExpressionliteralAST(MiniPythonParser.PrimitiveExpressionliteralASTContext context)
         {
-            bytecode.Add(new Instruction("LOAD_CONST", context.GetText()));
+            var literalValue = context.GetText();
+            bytecode.Add(new Instruction("LOAD_CONST", literalValue));
             return null;
         }
 
@@ -439,9 +438,14 @@ namespace CodeGen
         {
             if (context.LBRACKET() != null && context.RBRACKET() != null)
             {
+                if (context.primitiveExpression() == null || context.expression() == null)
+                {
+                    throw new InvalidOperationException("Error: Nodo nulo en acceso a índice de lista.");
+                }
+
                 Visit(context.primitiveExpression()); // Cargar la referencia del array
                 Visit(context.expression()); // Cargar el índice en la pila
-                bytecode.Add(new Instruction("BINARY_SUBSCR")); // Cargar el valor del índice
+                bytecode.Add(new Instruction("BINARY_SUBSCR")); // Obtener el valor del índice
             }
             else
             {
