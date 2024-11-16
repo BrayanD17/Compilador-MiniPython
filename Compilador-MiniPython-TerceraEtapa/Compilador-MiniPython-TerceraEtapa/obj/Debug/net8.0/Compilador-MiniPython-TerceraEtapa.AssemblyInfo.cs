@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Compilador-MiniPython-TerceraEtapa")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5e28478769fee0fe3b805650f10035d4e42a4a35")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2b5d89111cc6c490c62f9425a79339eb8d375741")]
 [assembly: System.Reflection.AssemblyProductAttribute("Compilador-MiniPython-TerceraEtapa")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Compilador-MiniPython-TerceraEtapa")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
