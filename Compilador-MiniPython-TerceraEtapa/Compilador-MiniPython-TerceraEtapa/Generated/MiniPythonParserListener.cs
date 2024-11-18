@@ -131,6 +131,26 @@ public interface IMiniPythonParserListener : IParseTreeListener {
 	/// <param name="context">The parse tree.</param>
 	void ExitAssignStatement([NotNull] MiniPythonParser.AssignStatementContext context);
 	/// <summary>
+	/// Enter a parse tree produced by <see cref="MiniPythonParser.simpleAssignStatement"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void EnterSimpleAssignStatement([NotNull] MiniPythonParser.SimpleAssignStatementContext context);
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="MiniPythonParser.simpleAssignStatement"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void ExitSimpleAssignStatement([NotNull] MiniPythonParser.SimpleAssignStatementContext context);
+	/// <summary>
+	/// Enter a parse tree produced by <see cref="MiniPythonParser.listAssignStatement"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void EnterListAssignStatement([NotNull] MiniPythonParser.ListAssignStatementContext context);
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="MiniPythonParser.listAssignStatement"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void ExitListAssignStatement([NotNull] MiniPythonParser.ListAssignStatementContext context);
+	/// <summary>
 	/// Enter a parse tree produced by <see cref="MiniPythonParser.functionCallStatement"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>

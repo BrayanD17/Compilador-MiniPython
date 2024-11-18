@@ -26,7 +26,12 @@ forStatement: FOR expression IN expressionList DOSPUNTOS NEWLINE sequence;
 
 printStatement: PRINT LPAREN (expression (COMMA expression)*)? RPAREN NEWLINE?;
 
-assignStatement: (IDENTIFIER | IDENTIFIER LBRACKET expression RBRACKET) ASSIGN expression NEWLINE;
+assignStatement
+    : simpleAssignStatement
+    | listAssignStatement;
+
+simpleAssignStatement: IDENTIFIER ASSIGN expression NEWLINE;
+listAssignStatement: IDENTIFIER LBRACKET expression RBRACKET ASSIGN expression NEWLINE;
 
 functionCallStatement: IDENTIFIER LPAREN expressionList RPAREN NEWLINE?;
 

@@ -82,55 +82,64 @@ namespace CodeGen
             return base.VisitStatement(context);
         }
 
-       public override object VisitAssignStatement(MiniPythonParser.AssignStatementContext context)
+        public override object VisitAssignStatement(MiniPythonParser.AssignStatementContext context)
         {
-
-            if (context.LBRACKET() != null && context.RBRACKET() != null)
+            if (context.simpleAssignStatement() != null)
             {
-                // Asignación a un índice de lista
+                return VisitSimpleAssignStatement(context.simpleAssignStatement());
+            }
+            else if (context.listAssignStatement() != null)
+            {
+                return VisitListAssignStatement(context.listAssignStatement());
+            }
+            return null;
+        }
 
-                var listName = context.IDENTIFIER()?.GetText();
+        public override object VisitSimpleAssignStatement(MiniPythonParser.SimpleAssignStatementContext context)
+        {
+            var varName = context.IDENTIFIER().GetText();
+            var scopedVarName = currentLevel == 0 ? varName : $"{varName}_{currentLevel}";
 
-                // Procesar el índice y el valor
-                VisitExpressionHandlingGlobals(context.expression(0)); // Índice
-                VisitExpressionHandlingGlobals(context.expression(1)); // Valor
-
-                // Determinar si la lista es global o local
-                if (globalVariables.Contains(listName))
-                {
-                    bytecode.Add(new Instruction("LOAD_GLOBAL", listName));
-                }
-                else
-                {
-                    bytecode.Add(new Instruction("LOAD_FAST", $"{listName}_{currentLevel}"));
-                }
-
-                // Generar la instrucción para asignar el valor al índice
-                bytecode.Add(new Instruction("STORE_SUBSCR"));
+            if (currentLevel == 0)
+            {
+                EnsureGlobalVariable(varName);
+                VisitExpressionHandlingGlobals(context.expression());
+                bytecode.Add(new Instruction("STORE_GLOBAL", varName));
             }
             else
             {
-                // Manejo de asignaciones simples
-                var varName = context.IDENTIFIER()?.GetText();
-                var scopedVarName = currentLevel == 0 ? varName : $"{varName}_{currentLevel}";
-
-                if (currentLevel == 0)
+                if (!localVariables.Contains(scopedVarName))
                 {
-                    EnsureGlobalVariable(varName);
-                    VisitExpressionHandlingGlobals(context.expression(0));
-                    bytecode.Add(new Instruction("STORE_GLOBAL", varName));
+                    bytecode.Add(new Instruction("PUSH_LOCAL", scopedVarName));
+                    localVariables.Add(scopedVarName);
                 }
-                else
-                {
-                    if (!localVariables.Contains(scopedVarName))
-                    {
-                        bytecode.Add(new Instruction("PUSH_LOCAL", scopedVarName));
-                        localVariables.Add(scopedVarName);
-                    }
-                    VisitExpressionHandlingGlobals(context.expression(0));
-                    bytecode.Add(new Instruction("STORE_FAST", scopedVarName));
-                }
+                VisitExpressionHandlingGlobals(context.expression());
+                bytecode.Add(new Instruction("STORE_FAST", scopedVarName));
             }
+
+            return null;
+        }
+
+        public override object VisitListAssignStatement(MiniPythonParser.ListAssignStatementContext context)
+        {
+            var listName = context.IDENTIFIER().GetText();
+
+            // Determinar si la lista es global o local
+            if (globalVariables.Contains(listName))
+            {
+                bytecode.Add(new Instruction("LOAD_GLOBAL", listName)); // Cargar la lista global primero
+            }
+            else
+            {
+                bytecode.Add(new Instruction("LOAD_FAST", $"{listName}_{currentLevel}")); // Cargar la lista local primero
+            }
+
+            // Procesar el índice y el valor
+            VisitExpressionHandlingGlobals(context.expression(0)); // Cargar el índice
+            VisitExpressionHandlingGlobals(context.expression(1)); // Cargar el valor
+
+            // Generar la instrucción para asignar el valor al índice
+            bytecode.Add(new Instruction("STORE_SUBSCR"));
 
             return null;
         }
@@ -279,7 +288,7 @@ namespace CodeGen
                 Visit(expr);
             }
 
-            bytecode.Add(new Instruction("LOAD_GLOBAL", "print"));  // Usa -1 para `print`
+            bytecode.Add(new Instruction("LOAD_GLOBAL", "print"));  // Usa -1 para print
             bytecode.Add(new Instruction("CALL_FUNCTION", context.expression().Length.ToString()));
             return null;
         }

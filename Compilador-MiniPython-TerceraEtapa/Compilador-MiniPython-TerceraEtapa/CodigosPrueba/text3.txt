@@ -1,4 +1,10 @@
 ﻿def Main():
     my_list = [1, 2, 3]
     my_list[2] = 12
-    print(my_list)
+    return my_list
+
+def funct(x):
+    x = 13
+    list_num = Main()
+    mult = x * list_num[1]
+    print(mult)

@@ -92,6 +92,18 @@ public interface IMiniPythonParserVisitor<Result> : IParseTreeVisitor<Result> {
 	/// <return>The visitor result.</return>
 	Result VisitAssignStatement([NotNull] MiniPythonParser.AssignStatementContext context);
 	/// <summary>
+	/// Visit a parse tree produced by <see cref="MiniPythonParser.simpleAssignStatement"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	Result VisitSimpleAssignStatement([NotNull] MiniPythonParser.SimpleAssignStatementContext context);
+	/// <summary>
+	/// Visit a parse tree produced by <see cref="MiniPythonParser.listAssignStatement"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	Result VisitListAssignStatement([NotNull] MiniPythonParser.ListAssignStatementContext context);
+	/// <summary>
 	/// Visit a parse tree produced by <see cref="MiniPythonParser.functionCallStatement"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>

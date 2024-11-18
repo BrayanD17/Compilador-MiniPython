@@ -1,8 +1,10 @@
 ﻿def m():
-    x = 0
+    x = 20
     y = 12
     if x > y:
-        num = x
+        num = x / y
     else:
-        num = y
+        num = x % y
     
+    print(num)
+   

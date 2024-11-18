@@ -8,7 +8,7 @@ namespace MiniPython
     {
         private readonly SymbolTable _symbolTable = new SymbolTable();
         private readonly List<ErrorInfo> _semanticErrors = new List<ErrorInfo>();
-        private bool isInGlobalScope = true; // Nueva variable para controlar el alcance global
+        private bool isInGlobalScope = true;
 
         public List<ErrorInfo> GetSemanticErrors() => _semanticErrors;
 
@@ -28,21 +28,32 @@ namespace MiniPython
 
         private void Visit(IParseTree node)
         {
-            if (node is MiniPythonParser.DefStatementContext defContext)
+            switch (node)
             {
-                HandleFunctionDefinition(defContext);
-            }
-            else if (node is MiniPythonParser.AssignStatementContext assignContext)
-            {
-                HandleAssignment(assignContext);
-            }
-            else if (node is MiniPythonParser.FunctionCallStatementContext callContext)
-            {
-                HandleFunctionCall(callContext);
-            }
-            else if (node is MiniPythonParser.PrintStatementContext printContext)
-            {
-                HandlePrintStatement(printContext);
+                case MiniPythonParser.DefStatementContext defContext:
+                    HandleFunctionDefinition(defContext);
+                    break;
+                case MiniPythonParser.AssignStatementContext assignContext:
+                    HandleAssignment(assignContext);
+                    break;
+                case MiniPythonParser.FunctionCallStatementContext callContext:
+                    HandleFunctionCall(callContext);
+                    break;
+                case MiniPythonParser.PrintStatementContext printContext:
+                    HandlePrintStatement(printContext);
+                    break;
+                case MiniPythonParser.IfStatementContext ifContext:
+                    HandleIfStatement(ifContext);
+                    break;
+                case MiniPythonParser.WhileStatementContext whileContext:
+                    HandleWhileStatement(whileContext);
+                    break;
+                case MiniPythonParser.ForStatementContext forContext:
+                    HandleForStatement(forContext);
+                    break;
+                case MiniPythonParser.ReturnStatementContext returnContext:
+                    HandleReturnStatement(returnContext);
+                    break;
             }
 
             for (int i = 0; i < node.ChildCount; i++)
@@ -80,7 +91,7 @@ namespace MiniPython
             _symbolTable.InsertarFuncion(functionName, "method", paramList);
             Console.WriteLine($"Función '{functionName}' con parámetros {string.Join(", ", paramList)} registrada en la tabla de símbolos.");
 
-            isInGlobalScope = false;  // Entramos en el alcance de una función (local)
+            isInGlobalScope = false;
             _symbolTable.OpenScope();
 
             foreach (var param in paramList)
@@ -92,58 +103,84 @@ namespace MiniPython
             Visit(defContext.sequence());
 
             _symbolTable.CloseScope();
-            isInGlobalScope = true;  // Volvemos al alcance global
+            isInGlobalScope = true;
             Console.WriteLine($"Alcance de la función '{functionName}' cerrado y variables locales eliminadas.");
         }
 
         private void HandleAssignment(MiniPythonParser.AssignStatementContext assignContext)
         {
-            var variableName = assignContext.IDENTIFIER().GetText();
-            Console.WriteLine($"Asignando a la variable: {variableName}");
-
-            // Verificar si la expresión de asignación existe
-            if (assignContext.expression() == null)
+            // Manejar asignación simple
+            if (assignContext.simpleAssignStatement() != null)
             {
-                Console.WriteLine($"Error: La asignación a '{variableName}' no tiene una expresión válida.");
-                _semanticErrors.Add(new ErrorInfo
+                var variableName = assignContext.simpleAssignStatement().IDENTIFIER().GetText();
+                Console.WriteLine($"Asignando a la variable: {variableName}");
+
+                if (assignContext.simpleAssignStatement().expression() == null)
                 {
-                    Line = assignContext.Start.Line,
-                    Column = 0,
-                    Message = $"Error: La asignación a '{variableName}' no tiene una expresión válida."
-                });
-                return;
-            }
-
-            // Usar Visit en lugar de castear directamente
-            //bool isAssignmentValid = Visit(assignContext.expression()) is bool result && result;
-            /*
-            if (!isAssignmentValid)
-            {
-                Console.WriteLine($"Error: Asignación no válida a '{variableName}' debido a variables o métodos no definidos.");
-                return;
-            }
-            */
-
-            // Registrar la variable en el alcance correspondiente
-            if (isInGlobalScope)
-            {
-                if (_symbolTable.BuscarEnNivelActual(variableName) == null)
-                {
-                    Console.WriteLine($"Registrando nueva variable global '{variableName}'.");
-                    _symbolTable.InsertarVariable(variableName, "global variable", false);
+                    Console.WriteLine($"Error: La asignación a '{variableName}' no tiene una expresión válida.");
+                    _semanticErrors.Add(new ErrorInfo
+                    {
+                        Line = assignContext.Start.Line,
+                        Column = 0,
+                        Message = $"Error: La asignación a '{variableName}' no tiene una expresión válida."
+                    });
+                    return;
                 }
-            }
-            else
-            {
-                if (_symbolTable.Buscar(variableName) == null)
+
+                // Registrar la variable en el alcance correspondiente
+                if (isInGlobalScope)
                 {
-                    Console.WriteLine($"Registrando nueva variable local '{variableName}' en el alcance actual.");
-                    _symbolTable.InsertarVariable(variableName, "local variable", false);
+                    if (_symbolTable.BuscarEnNivelActual(variableName) == null)
+                    {
+                        Console.WriteLine($"Registrando nueva variable global '{variableName}'.");
+                        _symbolTable.InsertarVariable(variableName, "global variable", false);
+                    }
                 }
                 else
                 {
-                    Console.WriteLine($"Variable '{variableName}' ya existe en algún nivel, no se registra de nuevo.");
+                    if (_symbolTable.Buscar(variableName) == null)
+                    {
+                        Console.WriteLine($"Registrando nueva variable local '{variableName}' en el alcance actual.");
+                        _symbolTable.InsertarVariable(variableName, "local variable", false);
+                    }
+                    else
+                    {
+                        Console.WriteLine($"Variable '{variableName}' ya existe en algún nivel, no se registra de nuevo.");
+                    }
                 }
+            }
+            // Manejar asignación a índice de lista
+            else if (assignContext.listAssignStatement() != null)
+            {
+                var listName = assignContext.listAssignStatement().IDENTIFIER().GetText();
+                Console.WriteLine($"Asignando a un índice de la lista: {listName}");
+
+                if (assignContext.listAssignStatement().expression().Length < 2)
+                {
+                    Console.WriteLine($"Error: La asignación a un índice de '{listName}' no tiene una expresión válida.");
+                    _semanticErrors.Add(new ErrorInfo
+                    {
+                        Line = assignContext.Start.Line,
+                        Column = 0,
+                        Message = $"Error: La asignación a un índice de '{listName}' no tiene una expresión válida."
+                    });
+                    return;
+                }
+
+                // Verificar si la lista está definida
+                if (_symbolTable.Buscar(listName) == null)
+                {
+                    Console.WriteLine($"Error: La lista '{listName}' no está definida.");
+                    _semanticErrors.Add(new ErrorInfo
+                    {
+                        Line = assignContext.Start.Line,
+                        Column = 0,
+                        Message = $"Error: La lista '{listName}' no está definida."
+                    });
+                    return;
+                }
+
+                Console.WriteLine($"Asignación válida al índice de la lista '{listName}'.");
             }
         }
 
@@ -155,12 +192,9 @@ namespace MiniPython
 
             if (methodName == "print")
             {
-                if (callContext.expressionList() != null)
+                foreach (var expr in callContext.expressionList()?.expression() ?? Array.Empty<MiniPythonParser.ExpressionContext>())
                 {
-                    foreach (var expr in callContext.expressionList().expression())
-                    {
-                        VisitExpression(expr, callContext.Start.Line);
-                    }
+                    VisitExpression(expr, callContext.Start.Line);
                 }
             }
             else
@@ -178,6 +212,41 @@ namespace MiniPython
             }
         }
 
+        private void HandleIfStatement(MiniPythonParser.IfStatementContext ifContext)
+        {
+            Console.WriteLine($"Procesando sentencia 'if' en línea {ifContext.Start.Line}");
+            Visit(ifContext.logicalExpression());
+            Visit(ifContext.sequence(0));
+            if (ifContext.sequence().Length > 1)
+            {
+                Visit(ifContext.sequence(1)); // Else
+            }
+        }
+
+        private void HandleWhileStatement(MiniPythonParser.WhileStatementContext whileContext)
+        {
+            Console.WriteLine($"Procesando sentencia 'while' en línea {whileContext.Start.Line}");
+            Visit(whileContext.logicalExpression());
+            Visit(whileContext.sequence());
+        }
+
+        private void HandleForStatement(MiniPythonParser.ForStatementContext forContext)
+        {
+            Console.WriteLine($"Procesando sentencia 'for' en línea {forContext.Start.Line}");
+            Visit(forContext.expression());
+            Visit(forContext.expressionList());
+            Visit(forContext.sequence());
+        }
+
+        private void HandleReturnStatement(MiniPythonParser.ReturnStatementContext returnContext)
+        {
+            Console.WriteLine($"Procesando sentencia 'return' en línea {returnContext.Start.Line}");
+            if (returnContext.expression() != null)
+            {
+                Visit(returnContext.expression());
+            }
+        }
+
         private bool VisitExpression(MiniPythonParser.ExpressionContext exprContext, int line)
         {
             if (exprContext == null)
@@ -192,57 +261,6 @@ namespace MiniPython
                 return false;
             }
 
-            bool isExpressionValid = true;
-            Console.WriteLine($"Analizando expresión en línea {line}...");
-
-            foreach (var child in exprContext.children)
-            {
-                if (child is MiniPythonParser.ElementExpressionContext elemExprContext)
-                {
-                    foreach (var elemChild in elemExprContext.children)
-                    {
-                        if (elemChild is MiniPythonParser.PrimitiveExpressionContext primitiveExpr)
-                        {
-                            var terminalNode = primitiveExpr.GetChild(0) as ITerminalNode;
-                            if (terminalNode != null)
-                            {
-                                var identifier = terminalNode.GetText();
-                                if (!IsStringLiteral(identifier))
-                                {
-                                    bool identifierValid = CheckIdentifierUsage(identifier, line);
-                                    if (!identifierValid)
-                                    {
-                                        isExpressionValid = false;
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-            return isExpressionValid;
-        }
-
-        private bool IsStringLiteral(string text)
-        {
-            return (text.StartsWith("\"") && text.EndsWith("\"")) || (text.StartsWith("'") && text.EndsWith("'"));
-        }
-
-        private bool CheckIdentifierUsage(string identifier, int line)
-        {
-            var symbol = _symbolTable.Buscar(identifier);
-
-            if (symbol == null)
-            {
-                Console.WriteLine($"Error: '{identifier}' no está definido en línea {line}.");
-                _semanticErrors.Add(new ErrorInfo
-                {
-                    Line = line,
-                    Column = 0,
-                    Message = $"Error: '{identifier}' no está definido."
-                });
-                return false;
-            }
             return true;
         }
 
@@ -261,16 +279,6 @@ namespace MiniPython
                         Message = $"Error: El método '{methodName}' espera {methodSymbol.Params.Count} parámetros, pero se pasaron {actualParamCount}."
                     });
                 }
-            }
-            else if (symbol == null)
-            {
-                Console.WriteLine($"Error: El método '{methodName}' no está definido en línea {line}.");
-                _semanticErrors.Add(new ErrorInfo
-                {
-                    Line = line,
-                    Column = 0,
-                    Message = $"Error: El método '{methodName}' no está definido."
-                });
             }
         }
     }
